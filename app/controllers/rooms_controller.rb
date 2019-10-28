@@ -13,7 +13,7 @@ class RoomsController < ApplicationController
 	end
   
 	def create
-	  @room = Room.create permitted_parameters
+	  @room = Room.find_or_create_by permitted_parameters
 	  # if @room.save
 		# flash[:success] = "#{@room.name} was created successfully"
 		# redirect_to rooms_path
