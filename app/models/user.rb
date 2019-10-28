@@ -8,9 +8,14 @@ class User < ApplicationRecord
 
   validates_presence_of :first_name, :last_name
 
+  has_many :reviews
+
   def gravatar_url
     gravatar_id = Digest::MD5::hexdigest(email).downcase
     "https://gravatar.com/avatar/#{gravatar_id}.png"
   end
-  
+
+  def average_rating
+    reviews.average(:rating)
+  end
 end
