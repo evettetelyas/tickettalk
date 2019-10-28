@@ -1,5 +1,7 @@
 class RoomMessagesController < ApplicationController
 	before_action :load_entities
+	before_action :authenticate_user!
+
   
 	def create
 		@room_message = RoomMessage.create user: current_user,

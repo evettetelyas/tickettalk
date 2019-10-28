@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between">
-		<a class="navbar-brand" href="#">TicketTalk</a>
+		<a class="navbar-brand" href="/">TicketTalk</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-bar-collapse" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
 		  <span class="navbar-toggler-icon"></span>
 		</button>
@@ -17,5 +17,8 @@
 			  <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
 			</div>
 		  </div>
+		  <% else %>
+		  <%= link_to "Log In", login_path, class: "dropdown-item" %>
+		  <%= link_to "Register", register_path, class: "dropdown-item" %>
 		<% end %>
 	  </nav>
