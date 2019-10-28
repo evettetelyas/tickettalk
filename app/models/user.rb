@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :username, uniqueness: true, presence: true
 
+  validates_presence_of :first_name, :last_name
+
   def gravatar_url
     gravatar_id = Digest::MD5::hexdigest(email).downcase
     "https://gravatar.com/avatar/#{gravatar_id}.png"

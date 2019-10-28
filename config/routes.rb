@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   
   resources :rooms
   resources :room_messages
+  
+  get "/profile", to: "users/dashboard#index"
 
   get '/search', to: 'users/search#index'
 end
