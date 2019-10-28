@@ -3,6 +3,8 @@ class RoomsController < ApplicationController
   	# @rooms = all rooms
   	# @room = current room when applicable
 	before_action :load_entities
+	before_action :authenticate_user!
+
   
 	def index
 	  @rooms = Room.all

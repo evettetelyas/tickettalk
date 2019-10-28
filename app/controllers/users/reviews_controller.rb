@@ -1,4 +1,6 @@
 class Users::ReviewsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     user_check?(reviewed_user) ?
       review = reviewed_user.reviews.create(review_params) :
