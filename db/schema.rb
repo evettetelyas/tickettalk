@@ -27,9 +27,10 @@ ActiveRecord::Schema.define(version: 2019_10_12_000401) do
 
   create_table "rooms", force: :cascade do |t|
     t.string "name"
+    t.string "tm_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_rooms_on_name", unique: true
+    t.index ["tm_id"], name: "index_rooms_on_tm_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|

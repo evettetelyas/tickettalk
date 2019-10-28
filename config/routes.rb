@@ -2,8 +2,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root controller: :rooms, action: :index
+  root to: 'welcome#index'
   
   resources :rooms
   resources :room_messages
+
+  get '/search', to: 'users/search#index'
 end

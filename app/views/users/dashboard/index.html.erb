@@ -1,0 +1,7 @@
+<center>
+	<h2><%= current_user.first_name %>'s dashboard</h2><br>
+	<p>Name: <%= current_user.first_name %> <%= current_user.last_name %></p>
+	<p>Email: <%= current_user.email %></p>
+	<p>Username: <%= current_user.username %></p>
+	<%= link_to "Edit Profile", edit_user_registration_path %>
+</center>

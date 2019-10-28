@@ -13,14 +13,14 @@ class RoomsController < ApplicationController
 	end
   
 	def create
-	  @room = Room.new permitted_parameters
-  
-	  if @room.save
-		flash[:success] = "#{@room.name} was created successfully"
-		redirect_to rooms_path
-	  else
-		render :new
-	  end
+	  @room = Room.create permitted_parameters
+	  # if @room.save
+		# flash[:success] = "#{@room.name} was created successfully"
+		# redirect_to rooms_path
+	  # else
+		# render :new
+	  # end
+	  redirect_to "/rooms/#{@room.id}"
 	end
 
 	def show
@@ -48,6 +48,6 @@ class RoomsController < ApplicationController
 	end
   
 	def permitted_parameters
-	  params.require(:room).permit(:name)
+	  params.permit(:name, :tm_id)
 	end
   end

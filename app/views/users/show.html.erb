@@ -1,0 +1,32 @@
+<section class='profile-summary'>
+  <h1><%= facade.username %>'s Profile</h1>
+  <h3>Average Rating: <%= facade.average_rating %></h3>
+</section>
+
+<section class='review-section'>
+  <section class='reviews'>
+    <table class='review-table'>
+      <tr>
+        <th>Reviewer</th>
+        <th>Rating</th>
+      </tr>
+      <% facade.reviews.each do |review| %>
+        <tr>
+          <td><%= review.reviewer.username %></td>
+          <td><%= review.rating %></td>
+        </tr>
+        <tr>
+          <td colspan='2'><%= review.content %></td>
+        </tr>
+      <% end %>
+    </table>
+  </section>
+
+  <section class= 'new-review'>
+    <%= simple_form_for [facade.user, facade.new_review], url: new_review_path do |f| %>
+      <%= f.input :rating, collection: 1..5, prompt: 'Select a Rating' %>
+      <%= f.input :content %>
+      <%= f.button :submit %>
+    <% end %>
+  </section>
+</section>

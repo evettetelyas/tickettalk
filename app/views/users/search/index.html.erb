@@ -1,0 +1,6 @@
+<center>
+	<h1><%= facade.keyword.capitalize %> Events</h1>
+	<% facade.events.each do |event| %>
+	<li><%= event.date %> | <%= event.name %> at <%= event.venue %> | <%= button_to "Join Room", rooms_path(tm_id: event.tm_id, name: event.name + " at " + event.venue) %> </li>
+	<% end %>
+</center>
