@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # Add Twilio for SMS notification
 gem 'twilio-ruby'
 gem 'sidekiq'
+gem 'sinatra'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

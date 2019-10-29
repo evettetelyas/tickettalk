@@ -7,7 +7,7 @@ class UpcomingOnSalesJob < ApplicationJob
     end.flatten
     next_onsale = []
     events.each do |event|
-      if event.on_sale < 24.hours.from_now && event.on_sale > 24.hours.ago
+      if event.on_sale && event.on_sale < 24.hours.from_now && event.on_sale > 24.hours.ago
         next_onsale << event
       end
     end

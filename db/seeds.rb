@@ -6,7 +6,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Event.create(name: "YELAWOLF Presents The Ghetto Cowboy Tour",
+Event.create(name: "Evette and the Puggos",
     tm_id: "vvG1OZ4mN2NdKw",
     purchase_url: "http://concerts.livenation.com/event/080056E8CF8C3...",
     image: "https://s1.ticketm.net/dam/a/38e/ac4b6231-2766-495...",
@@ -18,4 +18,4 @@ Event.create(name: "YELAWOLF Presents The Ghetto Cowboy Tour",
     currency: "USD",
     seatmap: "https://s1.ticketm.net/tmimages/venue/maps/det/320...",
     limit: "There is an overall 6 ticket limit for this event.",
-    venue: "The Fillmore Detroit presented by Cricket Wireless")
+    venue: "Madison Square Garden")
