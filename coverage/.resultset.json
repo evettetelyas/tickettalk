@@ -1142,16 +1142,35 @@
         null,
         null
       ],
+      "/Users/t_schafer/turing/3module/projects/tickettalk/spec/factories/room_messages.rb": [
+        1,
+        1,
+        4,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/t_schafer/turing/3module/projects/tickettalk/spec/factories/rooms.rb": [
+        1,
+        4,
+        null,
+        1,
+        4,
+        4,
+        null,
+        null
+      ],
       "/Users/t_schafer/turing/3module/projects/tickettalk/spec/factories/users.rb": [
         null,
         null,
         1,
         1,
-        8,
-        8,
-        8,
-        8,
-        5,
+        9,
+        9,
+        9,
+        9,
+        6,
         null,
         null,
         1,
@@ -1181,6 +1200,8 @@
         1,
         null,
         1,
+        null,
+        1,
         null
       ],
       "/Users/t_schafer/turing/3module/projects/tickettalk/app/models/user.rb": [
@@ -1197,8 +1218,11 @@
         1,
         null,
         1,
-        10,
-        10,
+        1,
+        null,
+        1,
+        11,
+        11,
         null,
         null,
         1,
@@ -1221,6 +1245,15 @@
       ],
       "/Users/t_schafer/turing/3module/projects/tickettalk/app/helpers/rooms_helper.rb": [
         1,
+        null
+      ],
+      "/Users/t_schafer/turing/3module/projects/tickettalk/spec/features/room/show_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
         null
       ],
       "/Users/t_schafer/turing/3module/projects/tickettalk/spec/features/user_show_spec.rb": [
@@ -1332,14 +1365,6 @@
         null,
         null
       ],
-      "/Users/t_schafer/turing/3module/projects/tickettalk/app/models/review.rb": [
-        1,
-        1,
-        null,
-        1,
-        1,
-        null
-      ],
       "/Users/t_schafer/turing/3module/projects/tickettalk/app/controllers/application_controller.rb": [
         1,
         1,
@@ -1349,6 +1374,52 @@
         1,
         6,
         null,
+        null
+      ],
+      "/Users/t_schafer/turing/3module/projects/tickettalk/app/models/room.rb": [
+        1,
+        1,
+        null,
+        1,
+        null
+      ],
+      "/Users/t_schafer/turing/3module/projects/tickettalk/app/models/room_message.rb": [
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/Users/t_schafer/turing/3module/projects/tickettalk/app/controllers/users/events_controller.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/t_schafer/turing/3module/projects/tickettalk/app/facades/my_events_facade.rb": [
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/t_schafer/turing/3module/projects/tickettalk/app/models/review.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
         null
       ],
       "/Users/t_schafer/turing/3module/projects/tickettalk/app/controllers/welcome_controller.rb": [
@@ -1449,6 +1520,6 @@
         null
       ]
     },
-    "timestamp": 1572307318
+    "timestamp": 1572312248
   }
 }
