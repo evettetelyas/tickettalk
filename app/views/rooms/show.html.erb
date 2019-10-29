@@ -42,7 +42,7 @@
 
 					  <div class="text-right">
 						<small>
-						  <%= room_message.created_at %>
+						  <%= room_message.created_at.localtime.strftime("%l:%M:%S %p") %>
 						</small>
 					  </div>
 					</div>
