@@ -1,7 +1,18 @@
 <center>
-	<h2><%= current_user.first_name %>'s dashboard</h2><br>
+	<h2><%= current_user.first_name %>'s dashboard | <%= link_to "Edit Profile", edit_user_registration_path %></h2><br>
 	<p>Name: <%= current_user.first_name %> <%= current_user.last_name %></p>
 	<p>Email: <%= current_user.email %></p>
 	<p>Username: <%= current_user.username %></p>
-	<%= link_to "Edit Profile", edit_user_registration_path %>
+
+	<% if current_user.has_interests? %>	  
+		<h3>Interests</h3>
+		<% current_user.interests.each do |interest| %>
+			<li><%= interest.keyword %></li>
+		<% end %>
+	<% end %>
+
+	<%= simple_form_for [:current_user, Interest.new] do |f| %>
+		<%= f.input :keyword, label: "Add an Interest" %>
+		<%= f.button :submit, "Add to My Interests", class: 'home-button' %>
+	<% end %>
 </center>

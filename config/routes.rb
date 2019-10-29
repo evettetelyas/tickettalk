@@ -21,6 +21,6 @@ Rails.application.routes.draw do
   get '/events', to: 'users/events#index', as: :my_events
 
   get '/profile', to: 'users/dashboard#index'
-
+  post '/interests', to: 'users/interests#create', as: :current_user_interests
   get '/search', to: 'users/search#index'
 end
