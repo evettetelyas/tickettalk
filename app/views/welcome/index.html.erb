@@ -5,7 +5,7 @@
 		<%= link_to "How it Works", "/", class: "home-button", method: :get %>
 	<% else %>
 		<%= form_tag(search_path, method: "get") do %>
-			<%= text_field_tag 'search', nil, placeholder: 'Find Your Events!', class: 'form-inputs' %><br><br>
+			<%= text_field_tag 'search', nil, placeholder: 'Find Your Events!', class: 'home-form-inputs' %><br><br>
 			<%= submit_tag('Search', class: "home-button") %>
 		<% end %>
 	<% end %>
