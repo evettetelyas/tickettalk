@@ -5,7 +5,3 @@ class SmsNotificationJob < ApplicationJob
     TwilioSmsService.new(event).new_intrest_event
   end
 end
-
-
-
-  # include Sidekiq::Worker
