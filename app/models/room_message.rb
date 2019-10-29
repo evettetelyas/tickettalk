@@ -5,6 +5,6 @@ class RoomMessage < ApplicationRecord
   belongs_to :user
 
   def as_json(options)
-    super(options).merge(user_avatar_url: user.gravatar_url)
+    super(options).merge(username_url: "/users/#{user.username}", username: user.username, timestamp: self.updated_at.localtime.strftime("%l:%M:%S %p"))
   end
 end

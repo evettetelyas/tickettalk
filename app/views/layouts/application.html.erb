@@ -11,14 +11,14 @@
 
   <body>
     <%= render partial: 'shared/navbar' %>
-    <center>
-    <div class="flash-message">
-        <% flash.each do |name, msg| %>
-          <%= content_tag :div, msg, class: name %>
-        <% end %>
-      </div>
-    </center>
     <div class="my-3">
+        <center>
+            <div class="flash-message">
+                <% flash.each do |name, msg| %>
+                  <%= content_tag :div, msg, class: name %>
+                <% end %>
+              </div>
+            </center>
       <%= yield %>
     </div>
 </body>
