@@ -6,6 +6,7 @@ rvm:
 
 services:
   - postgresql
+  - redis-server
 
 script:
   - bundle install
