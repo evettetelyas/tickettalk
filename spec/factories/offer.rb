@@ -1,0 +1,11 @@
+# frozen_string_literal: true
+
+FactoryBot.define do
+  factory :offer do
+    reviewer { user }
+    user { user }
+
+    rating { rand(1..5) }
+    content { Faker::TvShows::GameOfThrones.quote }
+  end
+end
