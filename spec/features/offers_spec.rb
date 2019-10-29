@@ -6,16 +6,16 @@ describe 'As a user' do
       @me = create(:user)
       @them = create(:user)
       @event = create(:event, limit: 10)
-      @room = create(:room, event_id: event.id)
+      @room = create(:room, event_id: @event.id)
       @rm = create(:room_message, user: @them, room: @room)
-    end
-    it 'I can open an offer with that user' do
 
       visit login_path
 
       fill_in 'Email', with: @me.email
       fill_in 'Password', with: @me.password
       click_on 'Log in'
+    end
+    it 'I can open an offer with that user' do
 
       visit user_show_path(@them.username)
 
@@ -37,7 +37,42 @@ describe 'As a user' do
     end
 
     it 'user can accept or decline pending offers' do
-      new_offer = 
+      new_offer = create(:offer, offer_user: @them)
+
+      visit '/profile'
+
+      expect(page).to have_css('.offers')
+      within(first('.offers')) do
+        expect(page).to have_content(@them.username)
+        expect(page).to have_content(new_offer.offer_price)
+        expect(page).to have_content(new_offer.quantity_requested)
+        expect(page).to have_content(new_offer.notes)
+        expect(page).to have_link('Accept')
+        expect(page).to have_link('Decline')
+
+        click_on 'Decline'
+      end
+
+      expect(page).to have_content("You have declined #{@them.username}'s offer")
+
+      offer_2 = create(:offer, offer_user: @them)
+      visit '/profile'
+
+      within(first('.offers')) do
+        expect(page).to have_content(@them.username)
+        expect(page).to have_content(offer_2.offer_price)
+        expect(page).to have_content(offer_2.quantity_requested)
+        expect(page).to have_content(offer_2.notes)
+        expect(page).to have_link('Accept')
+        expect(page).to have_link('Decline')
+
+        click_on 'Accept'
+      end
+      expect(page).to have_content("You have declined #{@them.username}'s offer")
+
+      within(first('.offers')) do
+        expect(page).to have_content('Offer declined')
+      end
     end
   end
 end
