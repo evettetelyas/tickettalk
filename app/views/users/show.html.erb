@@ -49,7 +49,8 @@
         <% if facade.user != current_user %>
           <td class= 'new-offer'>
             <%= link_to "Make an offer",
-                  new_offer_path(facade.user.id, current_user.id, :max_quantity => event.limit) %>
+                  new_offer_path(facade.user.id, current_user.id,
+                                 :max_quantity => event.limit) %>
           </td>
         <% end %>
       <% end %>

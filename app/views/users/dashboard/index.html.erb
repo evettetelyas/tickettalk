@@ -29,27 +29,33 @@
 				<th></th>
 			</tr>
 			<% current_user.offers.each do |offer| %>
-			<tr>
-				<td><%= facade.find_username(offer.user_id) %></td>
-				<td><%= facade.find_username(offer.offer_user_id) %></td>
-				<td><%= offer.offer_price %></td>
-				<td><%= offer.quantity_requested %></td>
-				<td><%= offer.notes %></td>
-				<% if offer.user_id == current_user.id %>
-					<% if offer.status == 'pending' %>
-						<td>
-							<%= link_to 'Accept',
-										offer_path(offer, accept: 'true'),
-										method: :patch %>
-							<%= link_to 'Decline',
-										offer_path(offer, accept: 'false'),
-										method: :patch %>
-						</td>
+				<tr>
+					<td><%= facade.find_username(offer.user_id) %></td>
+					<td><%= facade.find_username(offer.offer_user_id) %></td>
+					<td><%= offer.offer_price %></td>
+					<td><%= offer.quantity_requested %></td>
+					<td><%= offer.notes %></td>
+					<% if offer.user_id == current_user.id %>
+						<% if offer.status == 'pending' %>
+							<td>
+								<%= link_to 'Accept',
+											offer_path(offer, accept: 'true'),
+											method: :patch %>
+								<%= link_to 'Decline',
+											offer_path(offer, accept: 'false'),
+											method: :patch %>
+							</td>
+						<% else %>
+							<td><%= offer.status %></td>
+						<% end %>
 					<% else %>
-						<td><%= offer.status %></td>
+						<% if offer.status == 'accepted'%>
+							<td>Pay this user</td>
+						<% else %>
+							<td>offer.status</td>
+						<% end %>
 					<% end %>
-				<% end %>
-			</tr>
+				</tr>
 			<% end %>
 		</table>
 	</section>
