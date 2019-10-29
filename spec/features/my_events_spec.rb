@@ -13,6 +13,7 @@ describe 'My Events Index Page' do
     message_1 = create(:room_message, room: room_1, user: user)
     message_2 = create(:room_message, room: room_2, user: user)
     message_3 = create(:room_message, room: room_3, user: user)
+    message_4 = create(:room_message, room: room_3, user: user)
 
     visit '/events'
 
