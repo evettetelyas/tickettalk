@@ -14,17 +14,18 @@
       <div class="row">
         <div class="col-12">
           <%= render partial: 'shared/navbar' %>
+          <center>
+          <div class="flash-message">
+              <% flash.each do |name, msg| %>
+                <%= content_tag :div, msg, class: name %>
+              <% end %>
+            </div>
+          </center>
           <div class="my-3">
             <%= yield %>
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="flash-message">
-      <% flash.each do |name, msg| %>
-        <%= content_tag :div, msg, class: name %>
-      <% end %>
     </div>
   </body>
 </html>
