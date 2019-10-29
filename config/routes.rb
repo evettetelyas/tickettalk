@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   delete '/interests', to: 'users/interests#destroy', as: :destroy_interest
   get '/search', to: 'users/search#index'
 
+  patch '/users/offers/:offer_id', to: 'users/offers#update', as: :offer
+
   get '/users/:username/offers/new/:offer_user',
       to: 'users/offers#new', as: 'new_offer'
 

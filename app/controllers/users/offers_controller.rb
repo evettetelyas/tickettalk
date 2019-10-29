@@ -17,6 +17,19 @@ class Users::OffersController < ApplicationController
     end
   end
 
+  def update
+    offer = Offer.find(params[:offer_id])
+    if params[:accept] == 'true'
+      offer.update_attributes(status: :accepted)
+      flash[:success] = "#{offer.offer_user.username}'s offer has been accepted"
+    else
+      offer.update_attributes(status: :declined)
+      flash[:success] = "#{offer.offer_user.username}'s offer has been declined"
+    end
+    offer.save
+    redirect_to '/profile'
+  end
+
   private
 
   def offer_params

@@ -53,9 +53,10 @@ describe 'As a user' do
         click_on 'Decline'
       end
 
-      expect(page).to have_content("You have declined #{@them.username}'s offer")
+      expect(page).to have_content("#{@them.username}'s offer has been declined")
 
       offer_2 = create(:offer, user: @me, offer_user: @them)
+
       visit '/profile'
 
       within(first('.offers')) do
@@ -68,10 +69,10 @@ describe 'As a user' do
 
         click_on 'Accept'
       end
-      expect(page).to have_content("You have declined #{@them.username}'s offer")
+      expect(page).to have_content("#{@them.username}'s offer has been accepted")
 
       within(first('.offers')) do
-        expect(page).to have_content('Offer declined')
+        expect(page).to have_content('accepted')
       end
     end
   end
