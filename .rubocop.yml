@@ -3,3 +3,25 @@ AllCops:
     - test/**/*
     - spec/**/*
     - db/**/*
+    - config/**/*
+    - bin/**/*
+    - Rakefile
+    - Gemfile
+
+Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/IfUnlessModifierOfIfUnless:
+  Enabled: false
+
+Style/MultilineIfModifier:
+  Enabled: false
+
+Style/MultilineTernaryOperator:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false

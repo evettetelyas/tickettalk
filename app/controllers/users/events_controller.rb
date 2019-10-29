@@ -6,4 +6,4 @@ class Users::EventsController < ApplicationController
       facade: MyEventsFacade.new(current_user)
     }
   end
-  end
+end

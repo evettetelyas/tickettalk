@@ -1416,6 +1416,8 @@
         1,
         6,
         null,
+        null,
+        null,
         null
       ],
       "/Users/t_schafer/turing/3module/projects/tickettalk/app/models/room.rb": [
@@ -1531,14 +1533,12 @@
         3,
         null,
         null,
-        3,
         2,
         1,
         null,
         null,
         1,
-        null,
-        null,
+        3,
         3,
         null,
         null,
@@ -1580,6 +1580,6 @@
         null
       ]
     },
-    "timestamp": 1572316683
+    "timestamp": 1572318469
   }
 }
