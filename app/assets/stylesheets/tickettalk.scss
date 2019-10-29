@@ -21,7 +21,7 @@
 	border-radius: 5px 5px 0 0;
 	overflow-y: auto;
   }
-  
+
 .chat-input {
 	border-top: 0 none;
 	border-radius: 0 0 5px 5px;
@@ -128,9 +128,17 @@ padding: 5px;
 
 .new-navbar{
 	background-color: #009CDE;
-	height: 80px
+	height: 80px;
+	width: 100%;
+	display: inline-block;
 }
 
-.navbar-toggler {
+.nav-link {
+	color: white;
+}
+
+.dropdown {
+	display: inline-block;
+	margin-top: 1%;
 	float: right;
 }
