@@ -7,5 +7,8 @@ class Users::SearchController < ApplicationController
 		render locals: {
 			facade: SearchFacade.new(params[:search], params[:sort])
 		  }
+		rescue
+			flash[:error] = "No search results. Try another event!"
+			redirect_to root_path
 	end
 end

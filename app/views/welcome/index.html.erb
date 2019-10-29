@@ -2,7 +2,7 @@
 	<%= image_tag("ttlogo.png", class: "welcome-logo") %><br><br><br><br>
 	<% if !current_user %>
 		<%= link_to "Register", register_path, class: "home-button", method: :get %>
-		<%= link_to "How it Works", "/", class: "home-button", method: :get %>
+		<%= link_to "Log In", login_path, class: "home-button", method: :get %>
 	<% else %>
 		<%= form_tag(search_path, method: "get") do %>
 			<%= text_field_tag 'search', nil, placeholder: 'Find Your Events!', class: 'home-form-inputs' %><br><br>
