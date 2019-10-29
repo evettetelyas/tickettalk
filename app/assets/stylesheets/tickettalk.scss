@@ -46,3 +46,47 @@ padding: 5px;
 	margin-top: 10px;
 }
 }
+
+.welcome-logo {
+	width: 50%
+  }
+
+.home-button {
+	background-color:#009bde;
+	border-radius:31px;
+	text-align: center;
+	padding: 12px 0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Averta Demo PE cutted demo;
+	font-size:21px;
+	width:300px;
+	height:60px;
+	border:2px solid #262626;
+	text-decoration:none;
+	}
+
+.home-button:hover {
+	background-color:#262626;
+	text-decoration:none;
+	color:#ffffff;
+	}
+
+.home-button:active {
+	position:relative;
+	top:1px;
+	}
+
+.home-form-inputs {
+	width: 30%
+	}
+
+.navbar-brand {
+	font-family: 'Averta Demo PE';
+}
+
+.navvo {
+	background-color: #009CDE;
+}
+
