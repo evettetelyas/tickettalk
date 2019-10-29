@@ -17,10 +17,13 @@ class RoomsController < ApplicationController
 	end
 
 	def show
+		binding.pry
+		@room_message = RoomMessage.new room: @room
+		@room_messages = @room.room_messages.includes(:user)
+		@event = Event.find_by(tm_id: @room.tm_id)
 		render locals: {
 			facade: RoomShowFacade.new
 		}
-    @event = Event.find_by(tm_id: @room.tm_id)
 	end
 
 	protected
