@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PhatChat</title>
+    <title>Ticket Talk</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -19,6 +19,12 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="flash-message">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, class: name %>
+      <% end %>
     </div>
   </body>
 </html>
