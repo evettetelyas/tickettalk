@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_29_154930) do
+ActiveRecord::Schema.define(version: 2019_10_29_174859) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +31,13 @@ ActiveRecord::Schema.define(version: 2019_10_29_154930) do
     t.string "limit"
     t.string "venue"
   end
+
+  create_table "offers", force: :cascade do |t|
+    t.integer "offer_price"
+    t.integer "quantity_requested"
+    t.string "notes"
+    t.bigint "offer_user_id"
+    t.bigint "user_id"
 
   create_table "interests", force: :cascade do |t|
     t.bigint "user_id"
@@ -63,6 +71,8 @@ ActiveRecord::Schema.define(version: 2019_10_29_154930) do
     t.string "tm_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "event_id"
+
     t.index ["tm_id"], name: "index_rooms_on_tm_id", unique: true
   end
 

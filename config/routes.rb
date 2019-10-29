@@ -24,4 +24,10 @@ Rails.application.routes.draw do
   post '/interests', to: 'users/interests#create', as: :current_user_interests
   delete '/interests', to: 'users/interests#destroy', as: :destroy_interest
   get '/search', to: 'users/search#index'
+
+  get '/users/:username/offers/new/:offer_user',
+      to: 'users/offers#new', as: 'new_offer'
+
+  post '/users/:user/offers/new/:offer_user',
+       to: 'users/offers#create'
 end
