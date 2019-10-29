@@ -32,3 +32,7 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# Ignore test-related files
+/coverage.data
+/coverage/
