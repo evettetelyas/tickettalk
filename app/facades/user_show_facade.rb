@@ -7,6 +7,10 @@ class UserShowFacade
     @user = user
   end
 
+  def events
+    user.events
+  end
+
   def new_review
     Review.new
   end

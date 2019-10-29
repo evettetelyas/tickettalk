@@ -30,3 +30,29 @@
     <% end %>
   </section>
 </section>
+
+<section class ='user-events'>
+  <table class = 'events-table'>
+    <tr>
+      <th>Name</th>
+      <th>Minimum Price</th>
+      <th>Maximum Price</th>
+      <th>Ticket Limit</th>
+      <th></th>
+    </tr>
+    <% facade.events.each do |event| %>
+      <tr>
+        <td><%= event.name %></td>
+        <td><%= event.price_min %></td>
+        <td><%= event.price_max %></td>
+        <td><%= event.limit %></td>
+        <% if facade.user != current_user %>
+          <td class= 'new-offer'>
+            <%= link_to "Make an offer",
+                  new_offer_path(facade.user.id, current_user.id, :max_quantity => event.limit) %>
+          </td>
+        <% end %>
+      <% end %>
+    </tr>
+  </table>
+</section>
