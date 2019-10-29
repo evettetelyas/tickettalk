@@ -17,8 +17,5 @@
 			  <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
 			</div>
 		  </div>
-		  <% else %>
-		  <%= link_to "Log In", login_path, class: "dropdown-item" %>
-		  <%= link_to "Register", register_path, class: "dropdown-item" %>
 		<% end %>
 	  </nav>
