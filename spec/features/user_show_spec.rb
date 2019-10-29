@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'User show page' do
@@ -16,7 +18,6 @@ describe 'User show page' do
   end
 
   it 'shows info about that user' do
-
     expect(page).to have_content("#{@user.username}'s Profile")
     expect(page).to have_content('Average Rating: 5')
     expect(page).to have_css('.reviews')
@@ -62,6 +63,6 @@ describe 'User show page' do
       click_on 'Create Review'
     end
 
-    expect(page).to have_content("Sorry, you can only submit reviews about other users")
+    expect(page).to have_content('Sorry, you can only submit reviews about other users')
   end
 end

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 Rails.application.routes.draw do
-  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
   as :user do
     get 'login', to: 'devise/sessions#new'
     get 'register', to: 'devise/registrations#new'
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
 
   get '/events', to: 'users/events#index', as: :my_events
 
-  get "/profile", to: "users/dashboard#index"
+  get '/profile', to: 'users/dashboard#index'
 
   get '/search', to: 'users/search#index'
 end

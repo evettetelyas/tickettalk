@@ -1,20 +1,22 @@
+# frozen_string_literal: true
+
 class Users::ReviewsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    user_check?(reviewed_user) ?
-      review = reviewed_user.reviews.create(review_params) :
-      flash[:error] = "Sorry, you can only submit reviews about other users"
+    user_check?(find_user) ?
+      review = find_user.reviews.create(review_params) :
+      flash[:error] = 'Sorry, you can only submit reviews about other users'
     if review.save
       flash[:success] =
-      "You have successfully submited your review of #{reviewed_user.username}"
+        "You have successfully submited your review of #{find_user.username}"
     else
       flash[:error] = review.errors.full_messages.to_sentence
     end if review
-    redirect_to user_show_path(reviewed_user.username)
+    redirect_to user_show_path(find_user.username)
   end
 
-  def reviewed_user
+  def find_user
     User.find_by(username: params[:username])
   end
 

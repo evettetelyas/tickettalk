@@ -1,5 +1,6 @@
-class RoomShowFacade
+# frozen_string_literal: true
 
+class RoomShowFacade
   def find_username(id)
     User.find(id).username
   end
