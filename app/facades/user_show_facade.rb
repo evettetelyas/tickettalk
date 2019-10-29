@@ -1,5 +1,6 @@
-class UserShowFacade
+# frozen_string_literal: true
 
+class UserShowFacade
   attr_reader :user
 
   def initialize(user)

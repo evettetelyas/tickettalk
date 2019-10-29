@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SearchFacade
 	attr_reader :keyword
 	
@@ -6,13 +8,13 @@ class SearchFacade
 		@sort = sort
 	end
 
-	def service
-		DiscoService.new
-	end
+  def service
+    DiscoService.new
+  end
 
-	def event_data
-		service.search_events(@keyword)
-	end
+  def event_data
+    service.search_events(@keyword)
+  end
 
 	def create_events
 		event_data[:events].map do |event|
@@ -34,3 +36,4 @@ class SearchFacade
 		end
 	end
 end
+

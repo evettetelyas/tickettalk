@@ -1,6 +1,7 @@
-class Users::DashboardController < ApplicationController
-	before_action :authenticate_user!
+# frozen_string_literal: true
 
-	def index
-	end
+class Users::DashboardController < ApplicationController
+  before_action :authenticate_user!
+
+  def index; end
 end

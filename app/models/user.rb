@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -14,7 +16,7 @@ class User < ApplicationRecord
   has_many :rooms, through: :room_messages
 
   def gravatar_url
-    gravatar_id = Digest::MD5::hexdigest(email).downcase
+    gravatar_id = Digest::MD5.hexdigest(email).downcase
     "https://gravatar.com/avatar/#{gravatar_id}.png"
   end
 
