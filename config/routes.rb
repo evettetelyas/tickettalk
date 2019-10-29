@@ -21,7 +21,8 @@ Rails.application.routes.draw do
   get '/events', to: 'users/events#index', as: :my_events
 
   get '/profile', to: 'users/dashboard#index'
-
+  post '/interests', to: 'users/interests#create', as: :current_user_interests
+  delete '/interests', to: 'users/interests#destroy', as: :destroy_interest
   get '/search', to: 'users/search#index'
 
   get '/users/:username/offers/new/:offer_user',

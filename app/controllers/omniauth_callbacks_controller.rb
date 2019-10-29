@@ -17,6 +17,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     sign_in(:user, user)
 
     redirect_to after_sign_in_path_for(user)
-    flash[:sucess] = 'You are now signed in through Google!'
+    flash[:success] = 'You are now signed in through Google!'
   end
 end

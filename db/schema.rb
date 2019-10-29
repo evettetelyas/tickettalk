@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_10_29_174859) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,6 +38,13 @@ ActiveRecord::Schema.define(version: 2019_10_29_174859) do
     t.string "notes"
     t.bigint "offer_user_id"
     t.bigint "user_id"
+
+  create_table "interests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "keyword"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_interests_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -64,6 +72,7 @@ ActiveRecord::Schema.define(version: 2019_10_29_174859) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "event_id"
+
     t.index ["tm_id"], name: "index_rooms_on_tm_id", unique: true
   end
 
@@ -86,6 +95,7 @@ ActiveRecord::Schema.define(version: 2019_10_29_174859) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "interests", "users"
   add_foreign_key "room_messages", "rooms"
   add_foreign_key "room_messages", "users"
 end
