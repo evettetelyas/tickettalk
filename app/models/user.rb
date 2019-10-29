@@ -15,6 +15,8 @@ class User < ApplicationRecord
   has_many :room_messages
   has_many :rooms, through: :room_messages
 
+  has_many :events
+
   def gravatar_url
     gravatar_id = Digest::MD5.hexdigest(email).downcase
     "https://gravatar.com/avatar/#{gravatar_id}.png"
@@ -23,4 +25,5 @@ class User < ApplicationRecord
   def average_rating
     reviews.average(:rating)
   end
+
 end

@@ -23,4 +23,7 @@ Rails.application.routes.draw do
   get '/profile', to: 'users/dashboard#index'
 
   get '/search', to: 'users/search#index'
+
+  get '/users/:username/offers/new/:offer_user',
+      to: 'users/offers#new', as: 'new_offer'
 end

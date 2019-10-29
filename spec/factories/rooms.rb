@@ -6,5 +6,6 @@ FactoryBot.define do
   factory :room do
     name { Faker::TvShows::AquaTeenHungerForce.character }
     tm_id  { FactoryBot.generate(:random_id) }
+    event_id { FactoryBot.generate(:random_id) }
   end
 end

@@ -5,6 +5,8 @@ describe 'As a user' do
     it 'I can open an offer with that user' do
       me = create(:user)
       them = create(:user)
+      event = create(:event)
+      room = create(:room, event_id: event.id)
 
       visit login_path
 
@@ -14,13 +16,17 @@ describe 'As a user' do
 
       visit user_show_path(them.username)
 
-      expect(page).to have_link("Make an offer for #{them.username}")
+      within 'user-events' do
+        within "event-#{event.id}" do
+          expect(page).to have_link("Make #{them.username} an offer for #{event.name}")
+        end
+      end
 
       click_on "Make an offer for #{them.username}"
 
-      expect(current_path).to eq(new_offer_path)
+      expect(current_path).to eq(new_offer_path(them.username, me.username))
 
-      select 2, from: 'Tickets Requested'
+      select 2, from: 'Quantity requested'
       fill_in 'Price', with: 100
       fill_in 'Notes', with: 'Thank You!'
       click_on 'Submit'
