@@ -6,6 +6,8 @@ class RoomsController < ApplicationController
 
   def create
     @room = Room.find_or_create_by permitted_parameters
+    @room.event = Event.find_by(tm_id: params[:tm_id])
+    @room.save
     redirect_to "/rooms/#{@room.id}"
   end
 
