@@ -84,6 +84,8 @@ padding: 5px;
 
 .navbar-brand {
 	font-family: 'Averta Demo PE';
+	color: white;
+	margin: 5px;
 }
 
 .navvo {
@@ -92,5 +94,10 @@ padding: 5px;
 
 .event-image{
 	width: 270px
+}
+
+.navbar-toggler {
+	float: right;
+	align: right;
 }
 
