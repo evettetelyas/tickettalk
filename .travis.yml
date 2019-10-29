@@ -7,9 +7,11 @@ rvm:
 services:
   - postgresql
 
+before_script:
+  - redis-server
+
 script:
   - bundle install
   - bundle exec rake db:create
   - bundle exec rake db:migrate
-  - redis-server
   - bundle exec rspec
