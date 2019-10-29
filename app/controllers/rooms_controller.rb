@@ -26,6 +26,6 @@ class RoomsController < ApplicationController
   end
 
   def permitted_parameters
-    params.permit(:name, :tm_id, :event_id)
+    params.permit(:name, :tm_id)
   end
 end
