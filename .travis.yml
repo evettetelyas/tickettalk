@@ -6,8 +6,6 @@ rvm:
 
 services:
   - postgresql
-
-before_script:
   - redis-server
 
 script:
