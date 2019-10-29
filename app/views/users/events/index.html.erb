@@ -1,0 +1,10 @@
+<center>
+		<h3>Archive of My Events</h3>
+	  <p>
+	  <% facade.archive.each do |event| %>
+		<section class="event-#{event.id}">
+		  <br /><%= event.name %>
+		  <%= link_to 'View Archived Chat', rooms_path(event.id), method: :post %>
+		</section>
+	  <% end %>
+</center>

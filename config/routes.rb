@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :rooms
   resources :room_messages
 
+  get '/events', to: 'users/events#index', as: :my_events
+
   get "/profile", to: "users/dashboard#index"
 
   get '/search', to: 'users/search#index'
