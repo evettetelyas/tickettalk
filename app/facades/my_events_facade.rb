@@ -6,6 +6,6 @@ class MyEventsFacade
   end
 
   def archive
-    @user.rooms
+    @user.rooms.distinct
   end
 end
