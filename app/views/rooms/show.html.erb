@@ -8,7 +8,7 @@
 			<div class="mb-3">
 				<%= image_tag(@event.image, :class => "event-image") %>
 				<p>Show Date: <%= @event.formatted_date %></p>
-				<p>Onsale Time: <%= @event.on_sale %></p>
+				<p>Onsale: <%= @event.formatted_onsale %></p>
 				<% if @event.price_max %>
 					<p>Max Price: <%= number_to_currency @event.price_max %></p>
 				<% end %>
