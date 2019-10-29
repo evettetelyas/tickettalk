@@ -4,17 +4,8 @@ class RoomsController < ApplicationController
   	# @room = current room when applicable
 	before_action :load_entities
 	before_action :authenticate_user!
-
-
-	def index
-	  @rooms = Room.all
-	end
-
-	def new
-	  @room = Room.new
-	end
-
-	def create
+  
+  def create
 	  @room = Room.find_or_create_by permitted_parameters
 	  # if @room.save
 		# flash[:success] = "#{@room.name} was created successfully"
@@ -26,23 +17,10 @@ class RoomsController < ApplicationController
 	end
 
 	def show
-		@room_message = RoomMessage.new room: @room
-		@room_messages = @room.room_messages.includes(:user)
 		render locals: {
 			facade: RoomShowFacade.new
 		}
-	end
-  
-	def edit
-	end
-
-	def update
-	  if @room.update_attributes(permitted_parameters)
-		flash[:success] = "#{@room.name} was updated successfully"
-		redirect_to rooms_path
-	  else
-		render :new
-	  end
+    @event = Event.find_by(tm_id: @room.tm_id)
 	end
 
 	protected

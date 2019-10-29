@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_26_200245) do
+ActiveRecord::Schema.define(version: 2019_10_27_003353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.string "tm_id"
+    t.string "purchase_url"
+    t.string "image"
+    t.string "on_sale"
+    t.string "date"
+    t.string "raw_date"
+    t.float "price_min"
+    t.float "price_max"
+    t.string "currency"
+    t.string "seatmap"
+    t.string "limit"
+    t.string "venue"
+  end
 
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
