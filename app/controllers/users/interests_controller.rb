@@ -11,6 +11,13 @@ class Users::InterestsController < ApplicationController
 		redirect_to profile_path
 	end
 
+	def destroy
+		interest = Interest.find(params[:interest])
+		flash[:success] = "#{interest.keyword} has been deleted"
+		interest.destroy
+		redirect_to profile_path
+	end
+
 	protected
 
 	def keyword

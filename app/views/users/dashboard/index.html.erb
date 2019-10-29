@@ -7,10 +7,10 @@
 	<% if current_user.has_interests? %>	  
 		<h3>Interests</h3>
 		<% current_user.interests.each do |interest| %>
-			<li><%= interest.keyword %></li>
+			<li><%= interest.keyword %> | <%= link_to "Remove Interest", destroy_interest_path(interest: interest), method: :delete %></li>
 		<% end %>
 	<% end %>
-
+	<br><br><br>
 	<%= simple_form_for [:current_user, Interest.new] do |f| %>
 		<%= f.input :keyword, label: "Add an Interest" %>
 		<%= f.button :submit, "Add to My Interests", class: 'home-button' %>
