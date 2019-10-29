@@ -9,6 +9,6 @@ class RoomMessage < ApplicationRecord
   # end
 
   def as_json(options)
-    super(options).merge(username_url: "/users/#{user.username}", username: user.username)
+    super(options).merge(username_url: "/users/#{user.username}", username: user.username, timestamp: self.updated_at.localtime.strftime("%l:%M:%S %p"))
   end
 end
