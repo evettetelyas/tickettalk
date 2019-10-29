@@ -11,8 +11,8 @@
         <th>Rating</th>
       </tr>
       <% facade.reviews.each do |review| %>
-        <tr><%= binding.pry %>
-          <td><%= link_to "#{review.reviewer.username}",  %></td>
+        <tr>
+          <td><%= link_to "#{review.reviewer.username}", user_show_path(review.reviewer.username) %></td>
           <td><%= review.rating %></td>
         </tr>
         <tr>
