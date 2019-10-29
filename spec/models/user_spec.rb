@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
   describe 'instance methods' do
     it '#average_rating returns the average rating for all that users reviews' do
       user = create(:user)
