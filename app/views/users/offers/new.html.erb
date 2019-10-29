@@ -1,6 +1,7 @@
 <%= simple_form_for :offer do |f| %>
-  <%= f.input :quantity_requested, collection: [1.. @max_quantity],
+  <%= f.input :quantity_requested, collection: 1..@max_quantity.to_i,
               prompt: 'How many tickets are you requesting?' %>
   <%= f.input :offer_price, prompt: 'How much are you offering?' %>
+  <%= f.input :notes, prompt: 'Leave a message' %>
   <%= f.button :submit %>
 <% end %>

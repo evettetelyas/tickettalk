@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_29_165825) do
+ActiveRecord::Schema.define(version: 2019_10_29_174859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,14 @@ ActiveRecord::Schema.define(version: 2019_10_29_165825) do
     t.string "seatmap"
     t.string "limit"
     t.string "venue"
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.integer "offer_price"
+    t.integer "quantity_requested"
+    t.string "notes"
+    t.bigint "offer_user_id"
+    t.bigint "user_id"
   end
 
   create_table "reviews", force: :cascade do |t|

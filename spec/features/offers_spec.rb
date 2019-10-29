@@ -5,7 +5,7 @@ describe 'As a user' do
     it 'I can open an offer with that user' do
       me = create(:user)
       them = create(:user)
-      event = create(:event)
+      event = create(:event, limit: 10)
       room = create(:room, event_id: event.id)
       rm = create(:room_message, user: them, room: room)
 
@@ -17,23 +17,21 @@ describe 'As a user' do
 
       visit user_show_path(them.username)
 
-      save_and_open_page
-
       within '.user-events' do
-        expect(page).to have_link("Make #{them.username} an offer for #{event.name}")
+        expect(page).to have_link("Make an offer")
       end
 
       click_on "Make an offer"
 
-      expect(current_path).to eq(new_offer_path(them.username, me.username))
+      expect(current_path).to eq(new_offer_path(them.id, me.id))
 
       select 2, from: 'Quantity requested'
-      fill_in 'Price', with: 100
+      fill_in 'Offer price', with: 100
       fill_in 'Notes', with: 'Thank You!'
-      click_on 'Submit'
+      click_on 'Save Offer'
 
       expect(current_path).to eq(user_show_path(them.username))
-      expect(page).to have_content "You have submitted an offer to #{them.username}"
+      expect(page).to have_content "You have submitted an offer"
     end
   end
 end

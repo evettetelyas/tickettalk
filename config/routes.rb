@@ -26,4 +26,7 @@ Rails.application.routes.draw do
 
   get '/users/:username/offers/new/:offer_user',
       to: 'users/offers#new', as: 'new_offer'
+
+  post '/users/:user/offers/new/:offer_user',
+       to: 'users/offers#create'
 end
