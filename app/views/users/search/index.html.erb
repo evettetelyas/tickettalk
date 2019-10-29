@@ -2,6 +2,6 @@
 	<h1><%= facade.keyword.capitalize %> Events</h1>
 	<%= link_to "Sort by Show Date", search_path(search: facade.keyword, sort: "date_asc"), class: "home-button" %> <%= link_to "Sort by Price", search_path(search: facade.keyword, sort: "price_asc"), class: "home-button" %> <%= link_to "Sort by On Sale Date", search_path(search: facade.keyword, sort: "onsale_asc"), class: "home-button" %>
 	<% facade.events.each do |event| %>
-	<li><%= event.formatted_date %> | <%= event.name %> at <%= event.venue %> | <%= link_to "Join Room", rooms_path(tm_id: event.tm_id, name: event.name + " at " + event.venue), event_id: event.id, method: :post %> </li>
+	<li><%= event.formatted_date %> | <%= event.name %> at <%= event.venue %> | <%= link_to "Join Room", rooms_path(tm_id: event.tm_id, name: event.name + " at " + event.venue, event_id: event.id), method: :post %> </li>
 	<% end %>
 </center>

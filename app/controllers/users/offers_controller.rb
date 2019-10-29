@@ -2,14 +2,14 @@
 
 class Users::OffersController < ApplicationController
   def new
-    @max_quantity = params[:max_quantity]
+    @max_quantity = params[:max_quantity].gsub(/[^0-9]/, '')
   end
 
   def create
     user = User.find(params[:user])
     offer = Offer.create(offer_params)
     if offer.save
-      flash[:succes] = "You have submitted an offer to #{params[:username]}"
+      flash[:succes] = "You have submitted an offer to #{user.username}"
       redirect_to user_show_path(user.username)
     else
       flash[:error] = offer.errors.full_messages.to_sentence
