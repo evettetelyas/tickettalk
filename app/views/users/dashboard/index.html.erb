@@ -4,7 +4,7 @@
 	<p>Email: <%= current_user.email %></p>
 	<p>Username: <%= current_user.username %></p>
 
-	<% if current_user.has_interests? %>	  
+	<% if current_user.has_interests? %>
 		<h3>Interests</h3>
 		<% current_user.interests.each do |interest| %>
 			<li><%= interest.keyword %> | <%= link_to "Remove Interest", destroy_interest_path(interest: interest), method: :delete %></li>
@@ -16,3 +16,35 @@
 		<%= f.button :submit, "Add to My Interests", class: 'home-button' %>
 	<% end %>
 </center>
+
+<% if current_user.offers %>
+	<section class='offers'>
+		<table class='offers-table'>
+			<tr>
+				<th>Offering User</th>
+				<th>Offer For</th>
+				<th>Offer Price</th>
+				<th>Ticket Quantity</th>
+				<th>Notes</th>
+				<th></th>
+			</tr>
+			<% current_user.offers.each do |offer| %>
+			<tr>
+				<td>facade.find_username(offer.user_id)</td>
+				<td>facade.find_username(offer.offer_user_id)</td>
+				<td>facade.find_username(offer.offer_price)</td>
+				<td>facade.find_username(offer.quantity_requested)</td>
+				<td>facade.find_username(offer.notes)</td>
+				<td>
+					<%= link_to 'Accept',
+								offer_path(offer, accept: 'true'),
+								method: :patch %>
+					<%= link_to 'Accept',
+								offer_path(offer, accept: 'false'),
+								method: :patch %>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+	</section>
+<% end %>

@@ -37,7 +37,7 @@ describe 'As a user' do
     end
 
     it 'user can accept or decline pending offers' do
-      new_offer = create(:offer, offer_user: @them)
+      new_offer = create(:offer, user: @me, offer_user: @them)
 
       visit '/profile'
 
@@ -55,7 +55,7 @@ describe 'As a user' do
 
       expect(page).to have_content("You have declined #{@them.username}'s offer")
 
-      offer_2 = create(:offer, offer_user: @them)
+      offer_2 = create(:offer, user: @me, offer_user: @them)
       visit '/profile'
 
       within(first('.offers')) do
