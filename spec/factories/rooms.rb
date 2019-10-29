@@ -7,5 +7,7 @@ FactoryBot.define do
     name { Faker::TvShows::AquaTeenHungerForce.character }
     tm_id  { FactoryBot.generate(:random_id) }
     event_id { FactoryBot.generate(:random_id) }
+
+    event
   end
 end
