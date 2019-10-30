@@ -12,12 +12,12 @@ class User < ApplicationRecord
 
   has_many :reviews
   has_many :interests
-  has_many :room_messages
+  has_many :room_messages, dependent: :destroy
   has_many :rooms, through: :room_messages
 
   has_many :events, through: :rooms
 
-  has_many :offers
+  has_many :offers, dependent: :destroy
 
   def average_rating
     reviews.average(:rating)
