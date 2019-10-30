@@ -29,9 +29,9 @@ Rails.application.routes.draw do
 
   patch '/users/offers/:offer_id', to: 'users/offers#update', as: :offer
 
-  get '/users/:username/offers/new/:offer_user',
+  get '/users/:user_id/offers/new/:offer_user_id',
       to: 'users/offers#new', as: 'new_offer'
 
-  post '/users/:user/offers/new/:offer_user',
+  post '/users/:user_id/offers/new/:offer_user_id',
        to: 'users/offers#create'
 end

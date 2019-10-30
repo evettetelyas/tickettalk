@@ -2,15 +2,21 @@
 
 class Users::OffersController < ApplicationController
   def new
-    if params[:max_quantity]
-      @max_quantity = params[:max_quantity].gsub(/[^0-9]/, '')
+    if User.find(params[:offer_user_id]).has_offer_with?(params[:user_id])
+      user = User.find(params[:user_id])
+      flash[:error] = "You have already submitted an offer with this user"
+      redirect_to "/users/#{user.username}"
     else
-      @max_quantity = 4
+      if params[:max_quantity]
+        @max_quantity = params[:max_quantity].gsub(/[^0-9]/, '')
+      else
+        @max_quantity = 4
+      end
     end
   end
 
   def create
-    user = User.find(params[:user])
+    user = User.find(params[:user_id])
     offer = Offer.create(offer_params)
     if offer.save
       flash[:success] = "You have submitted an offer to #{user.username}"
@@ -44,8 +50,8 @@ class Users::OffersController < ApplicationController
     create_params = params.require(:offer).permit(:quantity_requested,
                                  :offer_price,
                                  :notes,)
-    create_params[:user_id] = params[:user].to_i
-    create_params[:offer_user_id] = params[:offer_user].to_i
+    create_params[:user_id] = params[:user_id].to_i
+    create_params[:offer_user_id] = params[:offer_user_id].to_i
     create_params
   end
 end

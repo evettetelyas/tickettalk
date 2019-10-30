@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_many :rooms, through: :room_messages
 
   has_many :events, through: :rooms
-  
+
   has_many :offers
 
   def average_rating
@@ -34,5 +34,9 @@ class User < ApplicationRecord
   def offers
     Offer.where(user_id: self.id)
          .or(Offer.where(offer_user_id: self.id))
+  end
+
+  def has_offer_with?(user_id)
+    self.offers.where(user_id: user_id).count > 0
   end
 end
