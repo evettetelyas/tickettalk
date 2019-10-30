@@ -5,7 +5,7 @@
 	<p>Username: <%= current_user.username %></p>
 	<% if current_user.paypal_me %>
 		<p>PaypalMe Account URL: paypal.me/<%= current_user.paypal_me %></p>
-	<% end %>
+	<% end %><br><br>
 
 	<% if current_user.has_interests? %>
 		<h3>Interests</h3>
@@ -13,9 +13,9 @@
 			<li><%= interest.keyword %> | <%= link_to "Remove", destroy_interest_path(interest: interest), method: :delete %></li>
 		<% end %>
 	<% end %>
-	<br><br><br>
+	<br><br>
 	<%= simple_form_for [:current_user, Interest.new] do |f| %>
-		<%= f.input :keyword, label: "Add an Interest" %>
+		<div class="interest-input"><%= f.input :keyword, label: "Add an Interest" %></div>
 		<%= f.button :submit, "Add to My Interests", class: 'home-button' %>
 	<% end %>
 </center>
