@@ -3,6 +3,9 @@
 	<p>Name: <%= current_user.first_name %> <%= current_user.last_name %></p>
 	<p>Email: <%= current_user.email %></p>
 	<p>Username: <%= current_user.username %></p>
+	<% if current_user.paypal_me %>
+		<p>PaypalMe Account URL: paypal.me/<%= current_user.paypal_me %></p>	  
+	<% end %>
 
 	<% if current_user.has_interests? %>
 		<h3>Interests</h3>

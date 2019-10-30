@@ -12,7 +12,9 @@
     <% end %>
 
     <%= f.input :username, required: false, autofocus: true %>
-
+    <%= f.input :paypal_me,
+                hint: "Add your PayPalMe account to pay users for tickets",
+                required: false %>
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
