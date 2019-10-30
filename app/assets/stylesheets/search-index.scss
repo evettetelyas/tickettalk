@@ -1,0 +1,60 @@
+.index-top {
+  text-align: center;
+}
+
+.index-top th {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.index-top td {
+  padding-right: 20px;
+}
+
+.cool-header {
+  text-align: center;
+  font-size: 35px;
+  color: rgb(4, 15, 26);
+  text-shadow: #009BDE 2px 2px 2px;
+  margin-bottom: 10px;
+}
+
+.search-index {
+  margin-top: 30px;
+}
+
+.search-table {
+  border: 1px solid #009BDE;
+  background-color: #EEEEEE;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+.search-table td, .search-table th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+.search-table tbody td {
+  font-size: 13px;
+}
+.search-table tr:nth-child(even) {
+  background: #D0E4F5;
+}
+.search-table thead {
+  background: #009BDE;
+  background: -moz-linear-gradient(top, #40b4e6 0%, #19a5e1 66%, #009BDE 100%);
+  background: -webkit-linear-gradient(top, #40b4e6 0%, #19a5e1 66%, #009BDE 100%);
+  background: linear-gradient(to bottom, #40b4e6 0%, #19a5e1 66%, #009BDE 100%);
+  border-bottom: 2px solid #262626;
+}
+.search-table th {
+  background: #009BDE;
+  font-size: 17px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 2px solid #D0E4F5;
+}
+.search-table thead th:first-child {
+  border-left: none;
+}

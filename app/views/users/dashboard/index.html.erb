@@ -1,23 +1,26 @@
-<center>
+<center class="page-fonts">
 	<h2><%= current_user.first_name %>'s dashboard | <%= link_to "Edit Profile", edit_user_registration_path %></h2><br>
 	<p>Name: <%= current_user.first_name %> <%= current_user.last_name %></p>
 	<p>Email: <%= current_user.email %></p>
 	<p>Username: <%= current_user.username %></p>
+	<% if current_user.paypal_me %>
+		<p>PaypalMe Account URL: paypal.me/<%= current_user.paypal_me %></p>
+	<% end %><br><br>
 
 	<% if current_user.has_interests? %>
 		<h3>Interests</h3>
 		<% current_user.interests.each do |interest| %>
-			<li><%= interest.keyword %> | <%= link_to "Remove Interest", destroy_interest_path(interest: interest), method: :delete %></li>
+			<li><%= interest.keyword %> | <%= link_to "Remove", destroy_interest_path(interest: interest), method: :delete %></li>
 		<% end %>
 	<% end %>
-	<br><br><br>
+	<br><br>
 	<%= simple_form_for [:current_user, Interest.new] do |f| %>
-		<%= f.input :keyword, label: "Add an Interest" %>
+		<div class="interest-input"><%= f.input :keyword, label: "Add an Interest" %></div>
 		<%= f.button :submit, "Add to My Interests", class: 'home-button' %>
 	<% end %>
 </center>
 
-<% if current_user.offers %>
+<% if current_user.offers != [] %>
 	<section class='offers'>
 		<table class='offers-table'>
 			<tr>
@@ -26,30 +29,37 @@
 				<th>Offer Price</th>
 				<th>Ticket Quantity</th>
 				<th>Notes</th>
-				<th></th>
+				<th>Status</th>
 			</tr>
 			<% current_user.offers.each do |offer| %>
-			<tr>
-				<td><%= facade.find_username(offer.user_id) %></td>
-				<td><%= facade.find_username(offer.offer_user_id) %></td>
-				<td><%= offer.offer_price %></td>
-				<td><%= offer.quantity_requested %></td>
-				<td><%= offer.notes %></td>
-				<% if offer.user_id == current_user.id %>
-					<% if offer.status == 'pending' %>
-						<td>
-							<%= link_to 'Accept',
-										offer_path(offer, accept: 'true'),
-										method: :patch %>
-							<%= link_to 'Decline',
-										offer_path(offer, accept: 'false'),
-										method: :patch %>
-						</td>
+				<tr>
+					<td><%= facade.find_username(offer.user_id) %></td>
+					<td><%= facade.find_username(offer.offer_user_id) %></td>
+					<td><%= offer.offer_price %></td>
+					<td><%= offer.quantity_requested %></td>
+					<td><%= offer.notes %></td>
+					<% if offer.user_id == current_user.id %>
+						<% if offer.status == 'pending' %>
+							<td>
+								<%= link_to 'Accept',
+											offer_path(offer, accept: 'true'),
+											method: :patch %>
+											|
+								<%= link_to 'Decline',
+											offer_path(offer, accept: 'false'),
+											method: :patch %>
+							</td>
+						<% else %>
+							<td><%= offer.status %></td>
+						<% end %>
 					<% else %>
-						<td><%= offer.status %></td>
+						<% if offer.status == 'accepted'%>
+							<td><%= link_to "Pay this User", facade.seller_paypal(offer.user_id)%></td>
+						<% else %>
+							<td><%= offer.status %></td>
+						<% end %>
 					<% end %>
-				<% end %>
-			</tr>
+				</tr>
 			<% end %>
 		</table>
 	</section>

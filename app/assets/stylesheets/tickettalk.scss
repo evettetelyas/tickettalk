@@ -6,25 +6,47 @@
   }
 
 .room-nav-link {
-	border: 1px solid lighten($primary, 40%);
+	border: 3px solid lighten($primary, 40%);
 	background: lighten($primary, 45%);
 
 & + .room-nav-link {
-	border-top: 0 none;
-}
+		border-top: 0 none;
+	}
 }
 
 .chat {
 	border: 1px solid lighten($secondary, 40%);
 	background: lighten($secondary, 50%);
 	height: 50vh;
-	border-radius: 5px 5px 0 0;
+	margin-left: 10%;
+	border-radius: 2px 2px 0 0;
 	overflow-y: auto;
   }
+
+.col-auto a {
+	color: #262626;
+	// text-shadow:0px 1px 1px #009bde;
+	align-self: left;
+}
+
+.col-auto {
+	margin-top: 0.8rem;
+	margin-left: 2.6rem;
+	text-align: left;
+}
+
+.row {
+	border-width:1px;
+	border-style:solid;
+	border-color:#262626;
+	border-radius: 8px;
+	box-shadow:0px 0px 5px 0px #009bde;
+}
 
 .chat-input {
 	border-top: 0 none;
 	border-radius: 0 0 5px 5px;
+	margin-left: 10%;
   }
 
 .chat-message-container {
@@ -36,10 +58,18 @@ padding: 5px;
 
 .message-content {
 	padding: 5px;
-	border: 1px solid $primary;
-	border-radius: 5px;
-	background: lighten($primary, 10%);
+	// border: 1px solid #262626;
+	border-radius: 1px;
+	background: #009bde;
 	color: $white;
+	width: 92%;
+	float: right;
+	text-align: left;
+	height: 3rem;
+}
+
+.mb-1 {
+	margin-top: 0.5rem;
 }
 
 & + .chat-message-container {
@@ -62,14 +92,14 @@ padding: 5px;
 	color:#ffffff;
 	font-family:Averta Demo PE cutted demo;
 	font-size:21px;
-	width:300px;
+	width:200px;
 	height:60px;
 	border:2px solid #262626;
 	text-decoration:none;
 	}
 
 .home-button:hover {
-	background-color:#262626;
+	background-color:#e61271;
 	text-decoration:none;
 	color:#ffffff;
 	}
@@ -134,6 +164,9 @@ padding: 5px;
 	display: inline-block;
 	margin-left: 10%;
 	margin-right: 10%;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
 	border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
 }
@@ -163,4 +196,54 @@ padding: 5px;
 	width: 80%;
 	margin-left: 10%;
 	margin-right: 10%;
+}
+
+.text-right {
+	float: right;
+	margin-top: 0.1rem;
+	color: black;
+}
+
+#rooms {
+	padding-top: 20px;
+}
+
+.btn-primary {
+	margin-left: 0;
+}
+
+.room-title {
+	font-family: 'Averta Demo PE cutted demo';
+}
+
+.seatmap {
+	font-family: 'Averta Demo PE cutted demo';
+}
+
+.page-fonts{
+	font-family: 'Averta Demo PE cutted demo';
+}
+
+.header-fonts{
+	font-family: 'Averta Demo PE cutted demo';
+}
+
+.page-links {
+	a:link {
+		color: #d00070;
+	  }
+	a:visited {
+	color: #d00070;
+	}
+	a:hover {
+		color: #262626;
+	  }
+}
+
+.interest-input {
+	width: 30%
+}
+
+.form-inputs {
+	width: 50%
 }

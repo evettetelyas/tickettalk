@@ -2,7 +2,11 @@
 
 class Users::OffersController < ApplicationController
   def new
-    @max_quantity = params[:max_quantity].gsub(/[^0-9]/, '')
+    if params[:max_quantity]
+      @max_quantity = params[:max_quantity].gsub(/[^0-9]/, '')
+    else
+      @max_quantity = 4
+    end
   end
 
   def create
@@ -20,8 +24,12 @@ class Users::OffersController < ApplicationController
   def update
     offer = Offer.find(params[:offer_id])
     if params[:accept] == 'true'
-      offer.update_attributes(status: :accepted)
-      flash[:success] = "#{offer.offer_user.username}'s offer has been accepted"
+      if current_user.paypal_me
+        offer.update_attributes(status: :accepted)
+        flash[:success] = "#{offer.offer_user.username}'s offer has been accepted"
+      else
+        flash[:error] = "You must link your paypal account in your profile before accepting offers"
+      end
     else
       offer.update_attributes(status: :declined)
       flash[:success] = "#{offer.offer_user.username}'s offer has been declined"

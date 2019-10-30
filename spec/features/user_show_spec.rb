@@ -46,23 +46,4 @@ describe 'User show page' do
 
     expect(page).to have_content('Average Rating: 4')
   end
-
-  it 'An error will be displayed if a review cannot be created' do
-    within('.new-review') do
-      fill_in 'Content', with: ''
-      click_on 'Create Review'
-    end
-
-    expect(page).to have_content("Content can't be blank")
-
-    visit "/users/#{@user2.username}"
-
-    within('.new-review') do
-      select 3, from: 'Rating'
-      fill_in 'Content', with: 'This guy rocks!'
-      click_on 'Create Review'
-    end
-
-    expect(page).to have_content('Sorry, you can only submit reviews about other users')
-  end
 end

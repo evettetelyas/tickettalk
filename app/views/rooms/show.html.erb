@@ -1,28 +1,30 @@
-	<center><h1>
+	<center><h1 class="room-title">
 		<%= @room.name %>
-	  </h1>
+	  </h1><br>
 	</center>
-	  
-	  <div class="row">
-		<div class="col-12 col-md-3">
-			<div class="mb-3">
-				<%= image_tag(@event.image, :class => "event-image") %>
-				<p>Show Date: <%= @event.formatted_date %></p>
-				<% if @event.on_sale %>
-					<p>Onsale: <%= @event.formatted_onsale %></p>
-				<% end %>
-				<% if @event.price_max %>
-					<p>Max Price: <%= number_to_currency @event.price_max %></p>
-				<% end %>
-				<% if @event.price_min %>
-					<p>Min Price: <%= number_to_currency @event.price_min %></p>
-				<% end %>
-				<% if @event.limit %>
-					<p>Ticket Limit: <%= @event.limit %></p>
-				<% end %>
-				<p>Buy Tickets on <%= link_to "Ticketmaster", @event.purchase_url %></p>
+
+	  <div class="row" id='rooms'>
+			<div class="col-12 col-md-3">
+				<div class="mb-3">
+					<section class="page-fonts">
+					<%= image_tag(@event.image, :class => "event-image") %>
+					<p>Show Date: <%= @event.formatted_date %></p>
+					<% if @event.on_sale %>
+						<p>Onsale: <%= @event.formatted_onsale %></p>
+					<% end %>
+					<% if @event.price_max %>
+						<p>Max Price: <%= number_to_currency @event.price_max %></p>
+					<% end %>
+					<% if @event.price_min %>
+						<p>Min Price: <%= number_to_currency @event.price_min %></p>
+					<% end %>
+					<% if @event.limit %>
+						<p>Ticket Limit: <%= @event.limit %></p>
+					<% end %>
+					<p>Buy Tickets on <%= link_to "Ticketmaster", @event.purchase_url %></p>
+				</section>
+				</div>
 			</div>
-		</div>
 
 		<div class="col">
 		<div class="chat" data-channel-subscribe="room" data-room-id="<%= @room.id %>">
@@ -42,7 +44,7 @@
 
 					  <div class="text-right">
 						<small>
-						  <%= room_message.updated_at.localtime.strftime("%l:%M:%S %p") %>
+						  <%= room_message.updated_at.getlocal.strftime("%l:%M:%S %p") %>
 						</small>
 					  </div>
 					</div>
@@ -73,7 +75,6 @@
 			<div class="chat-message-container">
 			  <div class="row no-gutters">
 				<div class="col-auto text-center">
-				  <!-- <img src="" class="avatar" alt="" data-role="user-avatar"> -->
 				  <a href="" data-role="user-username"></a>
 				</div>
 
@@ -89,9 +90,9 @@
 			  </div>
 			</div>
 		  </div>
-		  <center>
+		  <center><br>
 			  <% if @event.seatmap %>
-			  <h3>Seatmap</h3>
+			  <h3 class="seatmap">Seatmap</h3>
 			  <%= image_tag(@event.seatmap) %>
 			</center>
 			<% end %>
