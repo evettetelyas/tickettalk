@@ -3,8 +3,8 @@ require 'rails_helper'
 describe 'As a user' do
   describe 'when I visit another users profile' do
     before :each do
-      @me = create(:user)
-      @them = create(:user)
+      @me = create(:user, paypal_me: 'tylorschafer')
+      @them = create(:user, paypal_me: 'fakeuser')
       @event = create(:event, limit: 10)
       @room = create(:room, event_id: @event.id)
       @rm = create(:room_message, user: @them, room: @room)

@@ -20,7 +20,7 @@
 	<% end %>
 </center>
 
-<% if current_user.offers %>
+<% if current_user.offers != [] %>
 	<section class='offers'>
 		<table class='offers-table'>
 			<tr>
@@ -44,6 +44,7 @@
 								<%= link_to 'Accept',
 											offer_path(offer, accept: 'true'),
 											method: :patch %>
+											|
 								<%= link_to 'Decline',
 											offer_path(offer, accept: 'false'),
 											method: :patch %>
