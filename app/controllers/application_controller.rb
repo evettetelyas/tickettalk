@@ -13,4 +13,6 @@ class ApplicationController < ActionController::Base
                                       keys:
                                       %i[email username first_name last_name paypal_me])
   end
+
+  
 end

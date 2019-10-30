@@ -2,25 +2,26 @@
 
 class Users::OffersController < ApplicationController
   def new
-    if User.find(params[:offer_user_id]).has_offer_with?(params[:user_id])
-      user = User.find(params[:user_id])
-      flash[:error] = "You have already submitted an offer with this user"
-      redirect_to "/users/#{user.username}"
-    else
+    # if User.find(params[:offer_user_id]).has_offer_with?(params[:user_id])
+    #   user = User.find(params[:user_id])
+    #   flash[:error] = "You have already submitted an offer with this user"
+    #   redirect_to "/users/#{user.username}"
+    # else
       params[:max_quantity] ?
         @max_quantity = params[:max_quantity].gsub(/[^0-9]/, '') :
         @max_quantity = 4
-    end
+    # end
   end
 
   def create
-    user = User.find(params[:user_id])
-    offer = Offer.create(offer_params)
-    if offer.save
-      flash[:success] = "You have submitted an offer to #{user.username}"
-      redirect_to user_show_path(user.username)
+    @user = User.find(params[:user_id])
+    @offer = Offer.create(offer_params)
+    if @offer.save
+      flash[:success] = "You have submitted an offer to #{@user.username}"
+      NotificationChannel.broadcast_to @user, @offer
+      redirect_to user_show_path(@user.username)
     else
-      flash[:error] = offer.errors.full_messages.to_sentence
+      flash[:error] = @offer.errors.full_messages.to_sentence
       render :new
     end
   end
