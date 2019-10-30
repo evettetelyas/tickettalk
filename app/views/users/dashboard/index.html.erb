@@ -44,6 +44,7 @@
 								<%= link_to 'Accept',
 											offer_path(offer, accept: 'true'),
 											method: :patch %>
+											|
 								<%= link_to 'Decline',
 											offer_path(offer, accept: 'false'),
 											method: :patch %>
@@ -53,7 +54,7 @@
 						<% end %>
 					<% else %>
 						<% if offer.status == 'accepted'%>
-							<td><%= link_to "Pay this User", facade.seller_paypal(offer.offer_user_id)%></td>
+							<td><%= link_to "Pay this User", facade.seller_paypal(offer.user_id)%></td>
 						<% else %>
 							<td><%= offer.status %></td>
 						<% end %>
