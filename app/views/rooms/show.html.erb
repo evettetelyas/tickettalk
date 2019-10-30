@@ -1,6 +1,6 @@
-	<center><h1>
+	<center><h1 class="room-title">
 		<%= @room.name %>
-	  </h1>
+	  </h1><br>
 	</center>
 
 	  <div class="row" id='rooms'>
@@ -88,9 +88,9 @@
 			  </div>
 			</div>
 		  </div>
-		  <center>
+		  <center><br>
 			  <% if @event.seatmap %>
-			  <h3>Seatmap</h3>
+			  <h3 class="seatmap">Seatmap</h3>
 			  <%= image_tag(@event.seatmap) %>
 			</center>
 			<% end %>
