@@ -38,3 +38,6 @@
 /coverage/
 /coverage
 coverage
+
+# ignore dump.rdb
+/dump.rdb
