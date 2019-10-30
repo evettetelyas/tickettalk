@@ -13,7 +13,7 @@ class Users::OffersController < ApplicationController
     user = User.find(params[:user])
     offer = Offer.create(offer_params)
     if offer.save
-      flash[:succes] = "You have submitted an offer to #{user.username}"
+      flash[:success] = "You have submitted an offer to #{user.username}"
       redirect_to user_show_path(user.username)
     else
       flash[:error] = offer.errors.full_messages.to_sentence
