@@ -12,8 +12,8 @@
     <% end %>
 
     <%= f.input :username, required: false, autofocus: true %>
-    <%= f.input :paypal_me,
-                hint: "Add your PayPalMe account to pay users for tickets",
+    <%= f.input :paypal_me, label: "PayPal.me Account Name",
+                hint: "Add your PayPalMe account to pay users for tickets. If you do not have PayPal.me set up yet, simply link your existing PayPal account at #{link_to "paypal.me", "https://paypal.me"}".html_safe,
                 required: false %>
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",

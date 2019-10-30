@@ -58,6 +58,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'simplecov'
+  gem 'mailcatcher'
 end
 
 group :development do
