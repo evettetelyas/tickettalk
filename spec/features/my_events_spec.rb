@@ -21,5 +21,6 @@ describe 'My Events Index Page' do
     expect(page).to have_content(room_1.name)
     expect(page).to have_content(room_2.name)
     expect(page).to have_content(room_3.name)
+    expect(page).to have_selector('section.event', count: 3)
   end
 end

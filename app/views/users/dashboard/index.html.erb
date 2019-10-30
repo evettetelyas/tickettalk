@@ -33,8 +33,8 @@
 			</tr>
 			<% current_user.offers.each do |offer| %>
 				<tr>
+					<td><%= link_to facade.find_username(offer.offer_user_id), user_show_path(facade.find_username(offer.offer_user_id)) %></td>
 					<td><%= facade.find_username(offer.user_id) %></td>
-					<td><%= facade.find_username(offer.offer_user_id) %></td>
 					<td><%= offer.offer_price %></td>
 					<td><%= offer.quantity_requested %></td>
 					<td><%= offer.notes %></td>
