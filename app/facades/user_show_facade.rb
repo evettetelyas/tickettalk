@@ -7,8 +7,12 @@ class UserShowFacade
     @user = user
   end
 
+  def user_check?(current_user)
+    user != current_user
+  end
+
   def events
-    user.events
+    user.events.uniq
   end
 
   def new_review
