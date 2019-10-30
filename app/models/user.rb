@@ -6,7 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
-  validates :username, uniqueness: true, presence: true
+  validates :username, format: { with:  /\A[a-zA-Z0-9 ]+\z/ },
+            uniqueness: true,
+            presence: true
 
   validates_presence_of :first_name, :last_name
 
