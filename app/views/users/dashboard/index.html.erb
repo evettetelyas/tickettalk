@@ -4,7 +4,7 @@
 	<p>Email: <%= current_user.email %></p>
 	<p>Username: <%= current_user.username %></p>
 	<% if current_user.paypal_me %>
-		<p>PaypalMe Account URL: paypal.me/<%= current_user.paypal_me %></p>	  
+		<p>PaypalMe Account URL: paypal.me/<%= current_user.paypal_me %></p>
 	<% end %>
 
 	<% if current_user.has_interests? %>
@@ -53,9 +53,9 @@
 						<% end %>
 					<% else %>
 						<% if offer.status == 'accepted'%>
-							<td>Pay this user</td>
+							<td><%= link_to "Pay this User", facade.seller_paypal(offer.user_id)%></td>
 						<% else %>
-							<td>offer.status</td>
+							<td><%= offer.status %></td>
 						<% end %>
 					<% end %>
 				</tr>
