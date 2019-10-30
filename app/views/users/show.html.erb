@@ -1,59 +1,67 @@
 <section class='profile-summary'>
   <h1><%= facade.username %>'s Profile</h1>
-  <h3>Average Rating: <%= facade.average_rating %></h3>
+  <% if facade.reviews != [] %>
+    <h3>Average Rating: <%= facade.average_rating %></h3>
+  <% end %>
 </section>
 
-<section class='review-section'>
-  <section class='reviews'>
-    <table class='review-table'>
-      <tr>
-        <th>Reviewer</th>
-        <th>Rating</th>
-      </tr>
-      <% facade.reviews.each do |review| %>
+<% if facade.reviews != [] %>
+  <section class='review-section'>
+    <section class='reviews'>
+      <table class='review-table'>
         <tr>
-          <td><%= review.reviewer.username %></td>
-          <td><%= review.rating %></td>
+          <th>Reviewer</th>
+          <th>Rating</th>
         </tr>
-        <tr>
-          <td colspan='2'><%= review.content %></td>
-        </tr>
+        <% facade.reviews.each do |review| %>
+          <tr>
+            <td><%= review.reviewer.username %></td>
+            <td><%= review.rating %></td>
+          </tr>
+          <tr>
+            <td colspan='2'><%= review.content %></td>
+          </tr>
+        <% end %>
+      </table>
+    </section>
+  </section>
+  <% end %>
+
+  <% if facade.user_check?(current_user) %>
+    <section class= 'new-review'>
+      <%= simple_form_for [facade.user, facade.new_review], url: new_review_path do |f| %>
+        <%= f.input :rating, collection: 1..5, prompt: 'Select a Rating' %>
+        <%= f.input :content %>
+        <%= f.button :submit, class: 'button-blu' %>
       <% end %>
+    </section>
+  <% end %>
+
+<% if facade.user_check?(current_user) && facade.events != [] %>
+  <section class ='user-events'>
+    <table class = 'events-table'>
+      <tr>
+        <th>Name</th>
+        <th>Minimum Price</th>
+        <th>Maximum Price</th>
+        <th>Ticket Limit</th>
+        <th></th>
+      </tr>
+      <% facade.events.each do |event| %>
+        <tr>
+          <td><%= event.name %></td>
+          <td><%= event.price_min %></td>
+          <td><%= event.price_max %></td>
+          <td><%= event.limit %></td>
+          <% if facade.user != current_user %>
+            <td class= 'new-offer'>
+              <%= link_to "Make an offer",
+                    new_offer_path(facade.user.id, current_user.id,
+                                   :max_quantity => event.limit) %>
+            </td>
+          <% end %>
+        <% end %>
+      </tr>
     </table>
   </section>
-
-  <section class= 'new-review'>
-    <%= simple_form_for [facade.user, facade.new_review], url: new_review_path do |f| %>
-      <%= f.input :rating, collection: 1..5, prompt: 'Select a Rating' %>
-      <%= f.input :content %>
-      <%= f.button :submit %>
-    <% end %>
-  </section>
-</section>
-
-<section class ='user-events'>
-  <table class = 'events-table'>
-    <tr>
-      <th>Name</th>
-      <th>Minimum Price</th>
-      <th>Maximum Price</th>
-      <th>Ticket Limit</th>
-      <th></th>
-    </tr>
-    <% facade.events.each do |event| %>
-      <tr>
-        <td><%= event.name %></td>
-        <td><%= event.price_min %></td>
-        <td><%= event.price_max %></td>
-        <td><%= event.limit %></td>
-        <% if facade.user != current_user %>
-          <td class= 'new-offer'>
-            <%= link_to "Make an offer",
-                  new_offer_path(facade.user.id, current_user.id,
-                                 :max_quantity => event.limit) %>
-          </td>
-        <% end %>
-      <% end %>
-    </tr>
-  </table>
-</section>
+<% end %>

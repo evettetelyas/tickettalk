@@ -1,0 +1,67 @@
+.button-blu {
+	box-shadow: 0px 0px 2px 1px #474044;
+	background-color:#009bde;
+	border-radius:25px;
+	border:2px solid #262626;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:17px;
+	font-weight:bold;
+	padding:14px 17px;
+	text-decoration:none;
+	text-shadow:1px -1px 3px #e61271;
+  height: 50px;
+  width: 70%;
+  text-align: center;
+  margin-left: 15%;
+  margin-top: 8%;
+}
+
+.button-blu a {
+  margin-top: 50%;
+  margin-bottom: 50%;
+}
+
+.button-blu:hover {
+	background-color:#e01275;
+}
+.button-blu:active {
+	position:relative;
+	top:1px;
+}
+
+.button-sml {
+	box-shadow: 0px 0px 2px 1px #474044;
+	background-color:#009bde;
+	border-radius:25px;
+	border:2px solid #262626;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:17px;
+	font-weight:bold;
+	padding:14px 17px;
+	text-decoration:none;
+	text-shadow:1px -1px 3px #e61271;
+  height: 50px;
+  width: 40%;
+  text-align: center;
+  margin-left: 30%;
+  margin-top: 3%;
+}
+
+.button-sml a {
+  margin-top: 50%;
+  margin-bottom: 50%;
+}
+
+.button-sml:hover {
+	background-color:#e01275;
+}
+.button-sml:active {
+	position:relative;
+	top:1px;
+}
