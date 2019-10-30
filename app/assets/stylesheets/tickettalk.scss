@@ -6,7 +6,7 @@
   }
 
 .room-nav-link {
-	border: 1px solid lighten($primary, 40%);
+	border: 3px solid lighten($primary, 40%);
 	background: lighten($primary, 45%);
 
 & + .room-nav-link {
@@ -92,14 +92,14 @@ padding: 5px;
 	color:#ffffff;
 	font-family:Averta Demo PE cutted demo;
 	font-size:21px;
-	width:300px;
+	width:200px;
 	height:60px;
 	border:2px solid #262626;
 	text-decoration:none;
 	}
 
 .home-button:hover {
-	background-color:#262626;
+	background-color:#e61271;
 	text-decoration:none;
 	color:#ffffff;
 	}
@@ -164,6 +164,9 @@ padding: 5px;
 	display: inline-block;
 	margin-left: 10%;
 	margin-right: 10%;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
 	border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
 }
@@ -218,6 +221,10 @@ padding: 5px;
 }
 
 .page-fonts{
+	font-family: 'Averta Demo PE cutted demo';
+}
+
+.header-fonts{
 	font-family: 'Averta Demo PE cutted demo';
 }
 

@@ -2,7 +2,11 @@
 
 class Users::OffersController < ApplicationController
   def new
-    @max_quantity = params[:max_quantity].gsub(/[^0-9]/, '')
+    if params[:max_quantity]
+      @max_quantity = params[:max_quantity].gsub(/[^0-9]/, '')
+    else
+      @max_quantity = 4
+    end
   end
 
   def create

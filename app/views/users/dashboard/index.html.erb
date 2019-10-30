@@ -10,7 +10,7 @@
 	<% if current_user.has_interests? %>
 		<h3>Interests</h3>
 		<% current_user.interests.each do |interest| %>
-			<li><%= interest.keyword %> | <%= link_to "Remove Interest", destroy_interest_path(interest: interest), method: :delete %></li>
+			<li><%= interest.keyword %> | <%= link_to "Remove", destroy_interest_path(interest: interest), method: :delete %></li>
 		<% end %>
 	<% end %>
 	<br><br><br>
@@ -53,7 +53,7 @@
 						<% end %>
 					<% else %>
 						<% if offer.status == 'accepted'%>
-							<td>Pay this user</td>
+							<td><%= link_to "Pay this User", facade.seller_paypal(offer.offer_user_id)%></td>
 						<% else %>
 							<td><%= offer.status %></td>
 						<% end %>

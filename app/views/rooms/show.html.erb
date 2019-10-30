@@ -6,6 +6,7 @@
 	  <div class="row" id='rooms'>
 			<div class="col-12 col-md-3">
 				<div class="mb-3">
+					<section class="page-fonts">
 					<%= image_tag(@event.image, :class => "event-image") %>
 					<p>Show Date: <%= @event.formatted_date %></p>
 					<% if @event.on_sale %>
@@ -21,6 +22,7 @@
 						<p>Ticket Limit: <%= @event.limit %></p>
 					<% end %>
 					<p>Buy Tickets on <%= link_to "Ticketmaster", @event.purchase_url %></p>
+				</section>
 				</div>
 			</div>
 
