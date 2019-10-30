@@ -1,11 +1,12 @@
-	<center><h1>
+	<center><h1 class="room-title">
 		<%= @room.name %>
-	  </h1>
+	  </h1><br>
 	</center>
 
 	  <div class="row" id='rooms'>
 			<div class="col-12 col-md-3">
 				<div class="mb-3">
+					<section class="page-fonts">
 					<%= image_tag(@event.image, :class => "event-image") %>
 					<p>Show Date: <%= @event.formatted_date %></p>
 					<% if @event.on_sale %>
@@ -21,6 +22,7 @@
 						<p>Ticket Limit: <%= @event.limit %></p>
 					<% end %>
 					<p>Buy Tickets on <%= link_to "Ticketmaster", @event.purchase_url %></p>
+				</section>
 				</div>
 			</div>
 
@@ -88,9 +90,9 @@
 			  </div>
 			</div>
 		  </div>
-		  <center>
+		  <center><br>
 			  <% if @event.seatmap %>
-			  <h3>Seatmap</h3>
+			  <h3 class="seatmap">Seatmap</h3>
 			  <%= image_tag(@event.seatmap) %>
 			</center>
 			<% end %>

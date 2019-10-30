@@ -19,7 +19,7 @@ RSpec.describe "user interests" do
 
 		expect(page).to have_content("Phish")
 
-		click_on "Remove Interest"
+		click_on "Remove"
 		expect(page).to have_content("Phish has been deleted")
 
 		visit profile_path

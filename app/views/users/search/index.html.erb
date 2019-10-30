@@ -1,4 +1,4 @@
-<center>
+<center class="page-fonts">
 	<table class='index-top'>
 		<tr>
 			<th class='cool-header' colspan='3'><%= facade.keyword.capitalize %> Events</th>
@@ -6,20 +6,20 @@
 		<tr>
 			<td><%= link_to "Sort by Show Date", search_path(search: facade.keyword, sort: "date_asc"), class: "home-button" %></td>
 			<td><%= link_to "Sort by Price", search_path(search: facade.keyword, sort: "price_asc"), class: "home-button" %></td>
-			<td><%= link_to "Sort by On Sale Date", search_path(search: facade.keyword, sort: "onsale_asc"), class: "home-button" %></td>
+			<td><%= link_to "Sort by On Sale", search_path(search: facade.keyword, sort: "onsale_asc"), class: "home-button" %></td>
 		</tr>
 	</table>
 </center>
 
 <section class='search-index'>
 	<table class='search-table'>
-		<tr>
+		<tr class='header-fonts'>
 			<th>Date</th>
 			<th>Event</th>
 			<th></th>
 		</tr>
 		<% facade.events.each do |event| %>
-			<tr>
+			<tr class="page-fonts">
 				<td><%= event.formatted_date %></td>
 				<td><%= event.name %> at <%= event.venue %></td>
 				<td><%= link_to "Join Room", rooms_path(tm_id: event.tm_id,

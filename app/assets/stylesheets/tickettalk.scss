@@ -19,24 +19,24 @@
 	background: lighten($secondary, 50%);
 	height: 50vh;
 	margin-left: 10%;
-	border-radius: 5px 5px 0 0;
+	border-radius: 2px 2px 0 0;
 	overflow-y: auto;
   }
 
 .col-auto a {
 	color: #262626;
-	text-shadow:0px 1px 1px #009bde;
-	align-self: center;
+	// text-shadow:0px 1px 1px #009bde;
+	align-self: left;
 }
 
 .col-auto {
 	margin-top: 0.8rem;
 	margin-left: 2.6rem;
-	text-align: center;
+	text-align: left;
 }
 
 .row {
-	border-width:2px;
+	border-width:1px;
 	border-style:solid;
 	border-color:#262626;
 	border-radius: 8px;
@@ -58,14 +58,14 @@ padding: 5px;
 
 .message-content {
 	padding: 5px;
-	border: 1px solid $primary;
-	border-radius: 5px;
-	background: lighten($primary, 10%);
+	// border: 1px solid #262626;
+	border-radius: 1px;
+	background: #009bde;
 	color: $white;
-	width: 450px;
+	width: 570px;
 	float: right;
-	text-align: right;
-	height: 3rem;
+	text-align: left;
+	height: 3rem
 }
 
 .mb-1 {
@@ -210,4 +210,40 @@ padding: 5px;
 
 .btn-primary {
 	margin-left: 0;
+}
+
+.room-title {
+	font-family: 'Averta Demo PE cutted demo';
+}
+
+.seatmap {
+	font-family: 'Averta Demo PE cutted demo';
+}
+
+.page-fonts{
+	font-family: 'Averta Demo PE cutted demo';
+}
+
+.header-fonts{
+	font-family: 'Averta Demo PE cutted demo';
+}
+
+.page-links {
+	a:link {
+		color: #d00070;
+	  }
+	a:visited {
+	color: #d00070;
+	}
+	a:hover {
+		color: #262626;
+	  }
+}
+
+.interest-input {
+	width: 30%
+}
+
+.form-inputs {
+	width: 50%
 }

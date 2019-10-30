@@ -3,7 +3,7 @@
 }
 
 .offers-table {
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: "Averta Demo PE cutted demo";
   border: 1px solid #009BDE;
   background-color: #EEEEEE;
   width: 100%;
@@ -16,6 +16,7 @@
 }
 .offers-table tbody td {
   font-size: 13px;
+  font-family: "Averta Demo PE cutted demo";
 }
 .offers-table tr:nth-child(even) {
   background: #D0E4F5;
@@ -34,7 +35,12 @@
   color: #FFFFFF;
   text-align: center;
   border-left: 2px solid #D0E4F5;
+  font-family: "Averta Demo PE cutted demo";
 }
 .offers-table thead th:first-child {
   border-left: none;
+}
+
+.offer-headers {
+  font-family: "Averta Demo PE cutted demo";
 }
