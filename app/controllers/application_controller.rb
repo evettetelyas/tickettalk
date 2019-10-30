@@ -13,4 +13,10 @@ class ApplicationController < ActionController::Base
                                       keys:
                                       %i[email username first_name last_name paypal_me])
   end
+
+  def action_missing(m, *args, &block)
+    Rails.logger.error(m)
+    redirect_to '/'
+    flash[:error] = "Sorry the page your looking for doesn't exsist"
+  end
 end

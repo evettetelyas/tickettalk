@@ -6,18 +6,20 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
-  validates :username, uniqueness: true, presence: true
+  validates :username, format: { with:  /\A[a-zA-Z0-9 ]+\z/ },
+            uniqueness: true,
+            presence: true
 
   validates_presence_of :first_name, :last_name
 
   has_many :reviews
   has_many :interests
-  has_many :room_messages
+  has_many :room_messages, dependent: :destroy
   has_many :rooms, through: :room_messages
 
   has_many :events, through: :rooms
 
-  has_many :offers
+  has_many :offers, dependent: :destroy
 
   def average_rating
     reviews.average(:rating)
