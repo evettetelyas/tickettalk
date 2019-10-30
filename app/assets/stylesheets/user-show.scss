@@ -1,6 +1,6 @@
 
 .profile-summary {
-  width: 30%;
+  width: 40%;
   background: -webkit-linear-gradient(top, #6db3f2 0%,#ccd3dd 100%);
   margin: auto;
   text-align: center;
@@ -16,7 +16,7 @@
 
 .review-section {
   width: 100%;
-  margin: 0 auto;
+  margin-bottom: 50px;
   display: inline;
 }
 
@@ -39,7 +39,6 @@
   border-collapse: collapse;
   overflow: scroll;
   height: 300px;
-
 }
 
 .reviews td, .reviews th {
@@ -74,6 +73,8 @@
 .new-review {
   float: right;
   width: 30%;
+  display: inline-block;
+  align-content: center;
   margin-left: 5%;
   margin-right: 5%;
   border-radius: 25px;

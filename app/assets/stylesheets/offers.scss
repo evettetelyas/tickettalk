@@ -1,0 +1,40 @@
+.offers {
+  margin-top: 50px;
+}
+
+.offers-table {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  border: 1px solid #009BDE;
+  background-color: #EEEEEE;
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+.offers-table td, .offers-table th {
+  border: 1px solid #AAAAAA;
+  padding: 3px 2px;
+}
+.offers-table tbody td {
+  font-size: 13px;
+}
+.offers-table tr:nth-child(even) {
+  background: #D0E4F5;
+}
+.offers-table thead {
+  background: #009BDE;
+  background: -moz-linear-gradient(top, #40b4e6 0%, #19a5e1 66%, #009BDE 100%);
+  background: -webkit-linear-gradient(top, #40b4e6 0%, #19a5e1 66%, #009BDE 100%);
+  background: linear-gradient(to bottom, #40b4e6 0%, #19a5e1 66%, #009BDE 100%);
+  border-bottom: 2px solid #262626;
+}
+.offers-table th {
+  background: #009BDE;
+  font-size: 17px;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-align: center;
+  border-left: 2px solid #D0E4F5;
+}
+.offers-table thead th:first-child {
+  border-left: none;
+}

@@ -4,7 +4,7 @@
 	<p>Email: <%= current_user.email %></p>
 	<p>Username: <%= current_user.username %></p>
 	<% if current_user.paypal_me %>
-		<p>PaypalMe Account URL: paypal.me/<%= current_user.paypal_me %></p>	  
+		<p>PaypalMe Account URL: paypal.me/<%= current_user.paypal_me %></p>
 	<% end %>
 
 	<% if current_user.has_interests? %>
@@ -29,7 +29,7 @@
 				<th>Offer Price</th>
 				<th>Ticket Quantity</th>
 				<th>Notes</th>
-				<th></th>
+				<th>Status</th>
 			</tr>
 			<% current_user.offers.each do |offer| %>
 				<tr>
@@ -55,7 +55,7 @@
 						<% if offer.status == 'accepted'%>
 							<td>Pay this user</td>
 						<% else %>
-							<td>offer.status</td>
+							<td><%= offer.status %></td>
 						<% end %>
 					<% end %>
 				</tr>

@@ -24,21 +24,20 @@
         <% end %>
       </table>
     </section>
+  </section>
   <% end %>
-
 
   <% if facade.user_check?(current_user) %>
     <section class= 'new-review'>
       <%= simple_form_for [facade.user, facade.new_review], url: new_review_path do |f| %>
         <%= f.input :rating, collection: 1..5, prompt: 'Select a Rating' %>
         <%= f.input :content %>
-        <%= f.button :submit %>
+        <%= f.button :submit, class: 'button-blu' %>
       <% end %>
     </section>
-  </section>
   <% end %>
 
-<% if facade.user_check?(current_user) %>
+<% if facade.user_check?(current_user) && facade.events != [] %>
   <section class ='user-events'>
     <table class = 'events-table'>
       <tr>
@@ -48,7 +47,7 @@
         <th>Ticket Limit</th>
         <th></th>
       </tr>
-      <% facade.events do |event| %>
+      <% facade.events.each do |event| %>
         <tr>
           <td><%= event.name %></td>
           <td><%= event.price_min %></td>

@@ -10,21 +10,43 @@
 	background: lighten($primary, 45%);
 
 & + .room-nav-link {
-	border-top: 0 none;
-}
+		border-top: 0 none;
+	}
 }
 
 .chat {
 	border: 1px solid lighten($secondary, 40%);
 	background: lighten($secondary, 50%);
 	height: 50vh;
+	margin-left: 10%;
 	border-radius: 5px 5px 0 0;
 	overflow-y: auto;
   }
 
+.col-auto a {
+	color: #262626;
+	text-shadow:0px 1px 1px #009bde;
+	align-self: center;
+}
+
+.col-auto {
+	margin-top: 0.8rem;
+	margin-left: 2.6rem;
+	text-align: center;
+}
+
+.row {
+	border-width:2px;
+	border-style:solid;
+	border-color:#262626;
+	border-radius: 8px;
+	box-shadow:0px 0px 5px 0px #009bde;
+}
+
 .chat-input {
 	border-top: 0 none;
 	border-radius: 0 0 5px 5px;
+	margin-left: 10%;
   }
 
 .chat-message-container {
@@ -40,6 +62,14 @@ padding: 5px;
 	border-radius: 5px;
 	background: lighten($primary, 10%);
 	color: $white;
+	width: 450px;
+	float: right;
+	text-align: right;
+	height: 3rem;
+}
+
+.mb-1 {
+	margin-top: 0.5rem;
 }
 
 & + .chat-message-container {
@@ -163,4 +193,18 @@ padding: 5px;
 	width: 80%;
 	margin-left: 10%;
 	margin-right: 10%;
+}
+
+.text-right {
+	float: right;
+	margin-top: 0.1rem;
+	color: black;
+}
+
+#rooms {
+	padding-top: 20px;
+}
+
+.btn-primary {
+	margin-left: 0;
 }
