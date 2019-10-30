@@ -7,11 +7,9 @@ class Users::OffersController < ApplicationController
       flash[:error] = "You have already submitted an offer with this user"
       redirect_to "/users/#{user.username}"
     else
-      if params[:max_quantity]
-        @max_quantity = params[:max_quantity].gsub(/[^0-9]/, '')
-      else
+      params[:max_quantity] ?
+        @max_quantity = params[:max_quantity].gsub(/[^0-9]/, '') :
         @max_quantity = 4
-      end
     end
   end
 
