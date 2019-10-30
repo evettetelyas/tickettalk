@@ -4,7 +4,7 @@
 	  <% facade.archive.each do |event| %>
 		<section class="event">
 		  <br /><%= event.name %>
-		  <%= link_to 'View Archived Chat', rooms_path(event.id), method: :post %>
+		  <%= link_to 'View Archived Chat', "/rooms/#{event.id}", method: :get %>
 		</section>
 	  <% end %>
 </center>
