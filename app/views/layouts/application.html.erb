@@ -19,9 +19,11 @@
               <% end %>
             </div>
             </center>
-            <div data-role="notification-template">
-              <p data-role="offer-message"></p>
+            <div data-channel-subscribe="offer" data-user-id="<%= current_user.id %>">
+            <div data-role="offer-notification-template">
+              <p class="new-message-template" data-role="offer-message"></p>
             </div>
+          </div>
       <%= yield %>
     </div>
 </body>
