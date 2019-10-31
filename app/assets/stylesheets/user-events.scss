@@ -6,20 +6,24 @@
   font-family: "Comic Sans MS", cursive, sans-serif;
   border: 1px solid #009BDE;
   background-color: #EEEEEE;
-  width: 100%;
+  width: 80%;
   text-align: center;
   border-collapse: collapse;
 }
+
 .events-table td, .events-table th {
   border: 1px solid #AAAAAA;
   padding: 3px 2px;
 }
+
 .events-table tbody td {
   font-size: 13px;
 }
+
 .events-table tr:nth-child(even) {
   background: #D0E4F5;
 }
+
 .events-table thead {
   background: #009BDE;
   background: -moz-linear-gradient(top, #40b4e6 0%, #19a5e1 66%, #009BDE 100%);
@@ -27,6 +31,7 @@
   background: linear-gradient(to bottom, #40b4e6 0%, #19a5e1 66%, #009BDE 100%);
   border-bottom: 2px solid #262626;
 }
+
 .events-table th {
   background: #009BDE;
   font-size: 17px;
@@ -35,6 +40,7 @@
   text-align: center;
   border-left: 2px solid #D0E4F5;
 }
+
 .events-table thead th:first-child {
   border-left: none;
 }

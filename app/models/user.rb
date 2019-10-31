@@ -12,12 +12,13 @@ class User < ApplicationRecord
 
   validates_presence_of :first_name, :last_name
 
-  has_many :reviews
-  has_many :interests
+  has_many :interests, dependent: :destroy
   has_many :room_messages, dependent: :destroy
   has_many :rooms, through: :room_messages
 
   has_many :events, through: :rooms
+
+  has_many :reviews, dependent: :destroy
 
   has_many :offers, dependent: :destroy
 

@@ -2,6 +2,7 @@
 
 class Event < ApplicationRecord
   belongs_to :room, optional: true
+
   def formatted_date
     date&.to_datetime&.strftime('%D')
   end
