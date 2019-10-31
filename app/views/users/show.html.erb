@@ -51,8 +51,8 @@
       <% facade.events.each do |event| %>
         <tr>
           <td><%= event.name %></td>
-          <td><%= event.price_min %></td>
-          <td><%= event.price_max %></td>
+          <td><%= number_to_currency event.price_min %></td>
+          <td><%= number_to_currency event.price_max %></td>
           <td><%= event.limit %></td>
           <% if facade.user != current_user %>
             <td class= 'new-offer'>
