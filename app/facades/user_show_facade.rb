@@ -24,7 +24,7 @@ class UserShowFacade
   end
 
   def average_rating
-    user.average_rating
+    user.average_rating.round(1)
   end
 
   def reviews
