@@ -1,0 +1,53 @@
+.orange-link {
+  color: #fdb957;
+}
+
+.orange-link:hover {
+  color: #009cde;
+}
+
+.dark-orange-link {
+  color: #c16901;
+}
+
+.dash-top {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #262626;
+}
+
+.dash-info {
+  margin-top: 10px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #cbcbcb;
+}
+
+.interests {
+  margin-top: 10px;
+  padding-bottom: 10px;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #cbcbcb;
+}
+
+.interest-button {
+	background-color:#009bde;
+	border-radius:31px;
+	text-align: center;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Averta Demo PE cutted demo;
+	font-size:15px;
+	width:150px;
+	height:40px;
+	border: 1px solid #262626;
+	text-decoration:none;
+	}
+
+  .interest-button:hover {
+  	background-color:#e9a13a;
+  	text-decoration:none;
+  	color:#ffffff;
+  }

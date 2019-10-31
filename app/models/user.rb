@@ -19,6 +19,8 @@ class User < ApplicationRecord
 
   has_many :events, through: :rooms
 
+  has_many :reviews, dependent: :destroy
+
   has_many :offers, dependent: :destroy
 
   def average_rating

@@ -1,10 +1,11 @@
 <center class="page-fonts">
-		<h3>Archive of My Events</h3>
-	  <p>
+		<h3 class='my-events-title'>My Archive</h3>
+		<table class='user-events-table'>
 	  <% facade.archive.each do |event| %>
-		<section class="event">
-		  <br /><%= event.name %>
-		  <%= link_to 'View Archived Chat', "/rooms/#{event.id}", method: :get %>
-		</section>
+		<tr>
+		  <td><%= event.name %></td>
+		  <td><%= link_to 'View Archived Chat', "/rooms/#{event.id}", method: :get %></td>
+		</tr>
 	  <% end %>
+		</table>
 </center>
