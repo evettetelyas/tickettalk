@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'As a user' do
   describe 'when I visit another users profile' do
     before :each do
-      @me = create(:user, paypal_me: 'tylorschafer')
+      @me = create(:user)
       @them = create(:user, paypal_me: 'fakeuser')
       @event = create(:event, limit: 10)
       @room = create(:room, event_id: @event.id)
@@ -34,6 +34,17 @@ describe 'As a user' do
 
       expect(current_path).to eq(user_show_path(@them.username))
       expect(page).to have_content "You have submitted an offer"
+
+      visit user_show_path(@them.username)
+
+      allow_any_instance_of(Users::OffersController).to receive(:params).and_return(user_id: @me.id)
+      allow_any_instance_of(Users::OffersController).to receive(:offer_params).and_return({ notes: '', offer_price: 0})
+
+      click_on "Make an offer"
+
+      click_on 'Save Offer'
+
+      expect(page).to have_content("Quantity requested can't be blank")
     end
 
     it 'user can accept or decline pending offers' do
@@ -69,6 +80,15 @@ describe 'As a user' do
 
         click_on 'Accept'
       end
+      expect(page).to have_content("You must link your paypal account in your profile before accepting offers")
+
+      @me.paypal_me = 'paypalmeplease'
+      @me.save
+
+      visit '/profile'
+
+      click_on 'Accept'
+
       expect(page).to have_content("#{@them.username}'s offer has been accepted")
 
       within(first('.offers')) do

@@ -2,7 +2,11 @@
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start do
+  add_filter '/spec'
+  add_filter '/config/initializers/warden_hooks.rb'
+  add_filter '/app/jobs'
+end
 
 require 'faker'
 require 'spec_helper'

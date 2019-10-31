@@ -46,4 +46,14 @@ describe 'User show page' do
 
     expect(page).to have_content('Average Rating: 4')
   end
+
+  it 'A flash will display if a review is not filled out properly' do
+    within('.new-review') do
+      select 3, from: 'Rating'
+      fill_in 'Content', with: ''
+      click_on 'Create Review'
+    end
+
+    expect(page).to have_content("Content can't be blank")
+  end
 end
