@@ -14,11 +14,18 @@
     <div class="my-3">
         <center>
             <div class="flash-message">
-                <% flash.each do |name, msg| %>
-                  <%= content_tag :div, msg, class: name %>
-                <% end %>
-              </div>
+              <% flash.each do |name, msg| %>
+                <%= content_tag :div, msg, class: name %>
+              <% end %>
+            </div>
             </center>
+            <% if Offer.exists? && current_user.id == (Offer.last.user_id || Offer.last.offer_user_id) %>  
+              <div data-channel-subscribe="offer" data-user-id="<%= Offer.last.user_id %>">
+                <div data-role="offer-notification-template">
+                  <p class="new-message-template" data-role="offer-message"></p>
+                </div>
+              </div>
+            <% end %>
       <%= yield %>
     </div>
 </body>
