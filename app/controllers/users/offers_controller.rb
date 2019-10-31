@@ -2,6 +2,7 @@
 
 class Users::OffersController < ApplicationController
   def new
+    @tm_id = params[:tm_id]
     @max_quantity = if params[:max_quantity]
                       params[:max_quantity].gsub(/[^0-9]/, '')
                     else
@@ -39,6 +40,7 @@ class Users::OffersController < ApplicationController
     offer = Offer.find(params[:offer_id])
     if params[:accept] == 'true'
       paypal_check(offer)
+      offer.decline_other_offers(offer.id, offer.tm_id, offer.user_id, offer.offer_user_id)
     else
       offer.update_attributes(status: :declined)
       flash[:success] = "#{offer.offer_user.username}'s offer has been declined"
@@ -55,6 +57,7 @@ class Users::OffersController < ApplicationController
                                                   :notes)
     create_params[:user_id] = params[:user_id].to_i
     create_params[:offer_user_id] = params[:offer_user_id].to_i
+    create_params[:tm_id] = params[:tm_id]
     create_params
   end
 end
