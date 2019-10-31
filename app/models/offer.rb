@@ -12,5 +12,12 @@ class Offer < ApplicationRecord
   def as_json(options)
     super(options).merge(message: "You have a new #{self.status} offer from #{User.find(self.offer_user_id).username}")
   end
+
+  def decline_other_offers(id, tm_id, user_id, offer_user_id)
+    offers = Offer.where(tm_id: tm_id, user_id: user_id, offer_user_id: offer_user_id)
+              .where.not(id: id)
+              binding.pry
+    offers.update_all(status: 1)
+  end
 end
 

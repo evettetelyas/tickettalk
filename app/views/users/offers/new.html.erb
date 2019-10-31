@@ -7,6 +7,7 @@
                 required: :true %>
     <%= f.input :offer_price, placeholder: 'Total offer: $USD', required: :true %>
     <%= f.input :notes, placeholder: 'Leave a message', required: :true %>
+    <%= hidden_field_tag :tm_id, @tm_id %>
     <br>
     <%= f.button :submit, class: 'interest-button' %>
   <% end %>
