@@ -15,10 +15,10 @@ $(function() {
 		},
 		{
 		  received: function(data) {
-			var content = messageTemplate.children().clone(true, true);
-			content.find('[data-role="offer-message"]').text(data.message);
-			$element.append(content);
-			// $('.new-message-template').append(data.message)
+			// var content = messageTemplate.children().clone(true, true);
+			// content.find('[data-role="offer-message"]').text(data.message);
+			// $element.append(content);
+			$('.new-message-template').append(data.message)
 			// $element.animate({ scrollTop: $element.prop("scrollHeight")}, 1000);
 		  }
 		}
