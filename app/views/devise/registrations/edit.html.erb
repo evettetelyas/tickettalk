@@ -15,6 +15,15 @@
     <%= f.input :paypal_me, label: "PayPal.me Account Name",
                 hint: "Add your PayPalMe account to pay users for tickets. If you do not have PayPal.me set up yet, simply link your existing PayPal account at #{link_to "paypal.me", "https://paypal.me"}".html_safe,
                 required: false %>
+    <% unless current_user.uid %>
+      <%= f.input :password,
+                  hint: "leave it blank if you don't want to change it",
+                  required: false,
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  required: false,
+                  input_html: { autocomplete: "new-password" } %>
+  <% end %>
   </div>
 <p>
   <div class="form-actions">
