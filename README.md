@@ -45,8 +45,8 @@ Things you may want to cover:
 </p>
 # Database Schema
     <p>
-      ![Image of first half of schema](https://github.com/evettetelyas/tickettalk/blob/master/schema_1.png)
-      ![Image of second half of schema](https://github.com/evettetelyas/tickettalk/blob/master/schema_2.png)
+      ![Image of first half of schema](app/assets/images/schema_1.png)
+      ![Image of second half of schema](app/assets/images/schema_1.png)
       </p>
     </center>
   </p>
