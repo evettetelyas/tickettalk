@@ -19,7 +19,7 @@
               <% end %>
             </div>
             </center>
-            <% if current_user && Offer.exists? %>  
+            <% if current_user.id == (Offer.last.user_id || Offer.last.offer_user_id) %>  
               <div data-channel-subscribe="offer" data-user-id="<%= Offer.last.user_id %>">
                 <div data-role="offer-notification-template">
                   <p class="new-message-template" data-role="offer-message"></p>
