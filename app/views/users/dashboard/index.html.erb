@@ -7,7 +7,7 @@
 		<p><b>Username:</b> <%= link_to current_user.username, "/users/#{current_user.username}", class: 'orange-link' %></p>
 		<p><b>Name:</b> <%= current_user.first_name %> <%= current_user.last_name %></p>
 		<p><b>Email:</b> <%= current_user.email %></p>
-		<% if current_user.paypal_me %>
+		<% if current_user.paypal_me && current_user.paypal_me != "" %>
 			<p>PayPalMe Account URL: <%= link_to "paypal.me/#{current_user.paypal_me}", "https://paypal.me/#{current_user.paypal_me}" %> </p>
 		<% end %>
 	</section>
