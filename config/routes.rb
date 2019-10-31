@@ -4,7 +4,7 @@
 Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations' }
   as :user do
     get 'login', to: 'devise/sessions#new'
     get 'register', to: 'devise/registrations#new'
