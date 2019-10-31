@@ -16,7 +16,6 @@ class Offer < ApplicationRecord
   def decline_other_offers(id, tm_id, user_id, offer_user_id)
     offers = Offer.where(tm_id: tm_id, user_id: user_id, offer_user_id: offer_user_id)
               .where.not(id: id)
-              binding.pry
     offers.update_all(status: 1)
   end
 end
