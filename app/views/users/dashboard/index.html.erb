@@ -13,7 +13,7 @@
 	</section>
 
 	<section class='interests'>
-		<% if current_user.has_interests? %>
+		<% if current_user.interests? %>
 			<h3>Interests</h3>
 			<% current_user.interests.each do |interest| %>
 				<li><%= interest.keyword %> | <%= link_to "Remove", destroy_interest_path(interest: interest), method: :delete, class: 'orange-link' %></li>

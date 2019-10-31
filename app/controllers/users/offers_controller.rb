@@ -2,11 +2,11 @@
 
 class Users::OffersController < ApplicationController
   def new
-    if params[:max_quantity]
-      @max_quantity = params[:max_quantity].gsub(/[^0-9]/, '')
-    else
-      @max_quantity = 4
-    end
+    @max_quantity = if params[:max_quantity]
+                      params[:max_quantity].gsub(/[^0-9]/, '')
+                    else
+                      4
+                    end
   end
 
   def create
@@ -23,15 +23,22 @@ class Users::OffersController < ApplicationController
     end
   end
 
+  def paypal_check(offer)
+    if current_user.paypal_me
+      offer.update_attributes(status: :accepted)
+      flash[:success] =
+        "#{offer.offer_user.username}'s offer has been accepted"
+    else
+      flash[:error] =
+        'You must link your paypal account
+         in your profile before accepting offers'
+    end
+  end
+
   def update
     offer = Offer.find(params[:offer_id])
     if params[:accept] == 'true'
-      if current_user.paypal_me
-        offer.update_attributes(status: :accepted)
-        flash[:success] = "#{offer.offer_user.username}'s offer has been accepted"
-      else
-        flash[:error] = "You must link your paypal account in your profile before accepting offers"
-      end
+      paypal_check(offer)
     else
       offer.update_attributes(status: :declined)
       flash[:success] = "#{offer.offer_user.username}'s offer has been declined"
@@ -44,8 +51,8 @@ class Users::OffersController < ApplicationController
 
   def offer_params
     create_params = params.require(:offer).permit(:quantity_requested,
-                                 :offer_price,
-                                 :notes,)
+                                                  :offer_price,
+                                                  :notes)
     create_params[:user_id] = params[:user_id].to_i
     create_params[:offer_user_id] = params[:offer_user_id].to_i
     create_params
