@@ -13,7 +13,6 @@ class Users::OffersController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @offer = Offer.create(offer_params)
-    @offer_message = "You have a new offer from #{@user.username}"
     if @offer.save
       flash[:success] = "You have submitted an offer to #{@user.username}"
       OfferChannel.broadcast_to @user, @offer

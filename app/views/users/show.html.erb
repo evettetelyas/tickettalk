@@ -37,7 +37,7 @@
   <% end %>
 
 <% if facade.user_check?(current_user) && facade.events != [] %>
-<center>
+<center class="page-fonts">
   <section class ='user-events'>
     <center><h1 class='review-title'> <%=current_user.username %>'s Offers</h1></center>
     <table class = 'events-table'>
@@ -51,8 +51,8 @@
       <% facade.events.each do |event| %>
         <tr>
           <td><%= event.name %></td>
-          <td><%= event.price_min %></td>
-          <td><%= event.price_max %></td>
+          <td><%= number_to_currency event.price_min %></td>
+          <td><%= number_to_currency event.price_max %></td>
           <td><%= event.limit %></td>
           <% if facade.user != current_user %>
             <td class= 'new-offer'>
