@@ -26,5 +26,4 @@ class Users::InterestsController < ApplicationController
 		.map(&:capitalize)
 		.join(' ')
 	end
-
-  end
+end

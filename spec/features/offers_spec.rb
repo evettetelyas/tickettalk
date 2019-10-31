@@ -34,6 +34,17 @@ describe 'As a user' do
 
       expect(current_path).to eq(user_show_path(@them.username))
       expect(page).to have_content "You have submitted an offer"
+
+      visit user_show_path(@them.username)
+
+      allow_any_instance_of(Users::OffersController).to receive(:params).and_return(user_id: @me.id)
+      allow_any_instance_of(Users::OffersController).to receive(:offer_params).and_return({ notes: '', offer_price: 0})
+
+      click_on "Make an offer"
+
+      click_on 'Save Offer'
+
+      expect(page).to have_content("Quantity requested can't be blank")
     end
 
     it 'user can accept or decline pending offers' do
