@@ -1,5 +1,6 @@
-class DashboardFacade
+# frozen_string_literal: true
 
+class DashboardFacade
   def find_username(id)
     User.find(id).username
   end

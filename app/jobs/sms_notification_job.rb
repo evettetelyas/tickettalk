@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SmsNotificationJob < ApplicationJob
   queue_as :default
 
