@@ -30,7 +30,7 @@ class Users::OffersController < ApplicationController
       flash[:error] =
         'You must link your paypal account
          in your profile before accepting offers'
-    endb
+    end
   end
 
   def update
