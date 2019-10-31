@@ -10,7 +10,7 @@ class Offer < ApplicationRecord
   validates_presence_of :quantity_requested, :offer_price
 
   def as_json(options)
-    super(options).merge(message: "You have a new #{self.status} offer")
+    super(options).merge(message: "You have a new #{self.status} offer from #{User.find(self.offer_user_id).username}")
   end
 end
 
