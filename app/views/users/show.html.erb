@@ -9,16 +9,17 @@
 <% if facade.reviews != [] %>
   <section class='review-section'>
     <h1 class='review-title'>All Reviews</h1>
-    <% facade.reviews.each do |review| %>
-    <center>
-      <section class='review-single'>
-
-          <p class='user-reviewer'>Reviewed by: <%= link_to "#{review.reviewer.username}", user_show_path(review.reviewer.username) %></p>
-          <p class='user-rating'>Rating: <%= review.rating %></p>
-          <p class='user-content'><%= review.content %></p>
-      </section>
-    </center>
-    <% end %>
+    <section class= 'reviews'>
+      <% facade.reviews.each do |review| %>
+      <center>
+        <section class='review-single'>
+            <p class='user-reviewer'>Reviewed by: <%= link_to "#{review.reviewer.username}", user_show_path(review.reviewer.username) %></p>
+            <p class='user-rating'>Rating: <%= review.rating %></p>
+            <p class='user-content'><%= review.content %></p>
+        </section>
+      </center>
+      <% end %>
+    </section>
   </section>
   <% end %>
 
