@@ -12,11 +12,12 @@ footer a {
 }
 
 footer a:hover {
-  color: #d00070;
+  color: #fdb957;
 }
 
 footer small {
   float: left;
+  margin-right: 10px;
 }
 
 footer ul {
@@ -28,4 +29,5 @@ footer ul li {
   float: right;
   display: inline;
   margin-left: 10px;
+  margin-right: 10px;
 }

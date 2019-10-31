@@ -5,7 +5,7 @@ describe 'About Us page' do
     it 'can read who we are, about the project, the schema and tech stack' do
       visit root_path
 
-      click_link 'About Us'
+      click_link 'About'
 
       expect(current_path).to eq(about_path)
     end
