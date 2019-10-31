@@ -4,7 +4,7 @@
 Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
-  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations' }
   as :user do
     get 'login', to: 'devise/sessions#new'
     get 'register', to: 'devise/registrations#new'
@@ -36,4 +36,6 @@ Rails.application.routes.draw do
 
   post '/users/:user_id/offers/new/:offer_user_id',
        to: 'users/offers#create'
+
+  get '*path', to: 'application#routing_error'
 end

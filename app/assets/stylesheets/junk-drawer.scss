@@ -1,7 +1,3 @@
-.sign-in-button {
-	width: 180px;
-}
-
 .button-blu {
 	box-shadow: 0px 0px 2px 1px #474044;
 	background-color:#009bde;
@@ -65,7 +61,21 @@
 .button-sml:hover {
 	background-color:#e01275;
 }
+
 .button-sml:active {
 	position:relative;
 	top:1px;
+}
+
+.sign-in-button {
+	width: 180px;
+}
+
+.new-offer {
+	width: 50%;
+}
+
+.offer-title {
+	font-size: 25px;
+	margin-bottom: 15px;
 }

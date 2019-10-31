@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TwilioSmsService
   attr_reader :event
 
@@ -11,10 +13,11 @@ class TwilioSmsService
 
   def new_intrest_event
     client = Twilio::REST::Client.new
-    client.messages.create({
-      from: ENV["TWILIO_PHONE_NUMBER"],
+    client.messages.create(
+      from: ENV['TWILIO_PHONE_NUMBER'],
       to: '+17204434012',
-      body: "An event for #{@event.name} is about to go on sale at #{@event.venue} - check out the room on TicketTalk"
-    })
+      body: "An event for #{@event.name} is about to go on sale at
+            #{@event.venue} - check out the room on TicketTalk"
+    )
   end
 end

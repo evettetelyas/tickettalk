@@ -1,24 +1,32 @@
 <center class="page-fonts">
-	<h2><%= current_user.first_name %>'s dashboard | <%= link_to "Edit Profile", edit_user_registration_path %></h2><br>
-	<p><b>Username:</b> <%= link_to current_user.username, "/users/#{current_user.username}" %></p>
-	<p><b>Name:</b> <%= current_user.first_name %> <%= current_user.last_name %></p>
-	<p><b>Email:</b> <%= current_user.email %></p>
-	<% if current_user.paypal_me %>
-		<p>PayPalMe Account URL: <%= link_to "paypal.me/#{current_user.paypal_me}", "https://paypal.me/#{current_user.paypal_me}" %> </p>
-	<% end %><br><br>
+	<section class='dash-top'>
+	<h2><%= current_user.first_name %>'s dashboard | <%= link_to "Edit Profile", edit_user_registration_path, class: 'orange-link' %></h2>
+	</section>
 
-	<% if current_user.has_interests? %>
-		<h3>Interests</h3>
-		<% current_user.interests.each do |interest| %>
-			<li><%= interest.keyword %> | <%= link_to "Remove", destroy_interest_path(interest: interest), method: :delete %></li>
+	<section class='dash-info'>
+		<p><b>Username:</b> <%= link_to current_user.username, "/users/#{current_user.username}", class: 'orange-link' %></p>
+		<p><b>Name:</b> <%= current_user.first_name %> <%= current_user.last_name %></p>
+		<p><b>Email:</b> <%= current_user.email %></p>
+		<% if current_user.paypal_me && current_user.paypal_me != "" %>
+			<p>PayPalMe Account URL: <%= link_to "paypal.me/#{current_user.paypal_me}", "https://paypal.me/#{current_user.paypal_me}" %> </p>
 		<% end %>
-	<% end %>
-	<br><br>
-	<%= simple_form_for [:current_user, Interest.new] do |f| %>
-		<div class="interest-input"><%= f.input :keyword, label: "Add an Interest" %></div>
-		<%= f.button :submit, "Add to My Interests", class: 'home-button' %>
-	<% end %>
+	</section>
+
+	<section class='interests'>
+		<% if current_user.interests? %>
+			<h3>Interests</h3>
+			<% current_user.interests.each do |interest| %>
+				<li><%= interest.keyword %> | <%= link_to "Remove", destroy_interest_path(interest: interest), method: :delete, class: 'orange-link' %></li>
+			<% end %>
+		<% end %>
+		<%= simple_form_for [:current_user, Interest.new] do |f| %>
+			<div class="interest-input"><%= f.input :keyword, label: "Add an Interest" %></div>
+			<%= f.button :submit, "Add to My Interests", class: 'interest-button' %>
+		<% end %>
+	</section>
 </center>
+
+<center>
 <div class='page-fonts'>
 <% if current_user.offers != [] %>
 	<section class='offers'>
@@ -33,7 +41,7 @@
 			</tr>
 			<% current_user.offers.each do |offer| %>
 				<tr>
-					<td><%= link_to facade.find_username(offer.offer_user_id), user_show_path(facade.find_username(offer.offer_user_id)) %></td>
+					<td><%= link_to facade.find_username(offer.offer_user_id), user_show_path(facade.find_username(offer.offer_user_id)), class: 'dark-orange-link' %></td>
 					<td><%= facade.find_username(offer.user_id) %></td>
 					<td><%= offer.offer_price %></td>
 					<td><%= offer.quantity_requested %></td>
@@ -43,18 +51,18 @@
 							<td>
 								<%= link_to 'Accept',
 											offer_path(offer, accept: 'true'),
-											method: :patch %>
+											method: :patch, class: 'dark-orange-link' %>
 											|
 								<%= link_to 'Decline',
 											offer_path(offer, accept: 'false'),
-											method: :patch %>
+											method: :patch, class: 'dark-orange-link' %>
 							</td>
 						<% else %>
 							<td><%= offer.status %></td>
 						<% end %>
 					<% else %>
 						<% if offer.status == 'accepted'%>
-							<td><%= link_to "Pay this User", facade.seller_paypal(offer.user_id)%></td>
+							<td><%= link_to "Pay this User", facade.seller_paypal(offer.user_id), class: 'dark-orange-link'%></td>
 						<% else %>
 							<td><%= offer.status %></td>
 						<% end %>
@@ -63,5 +71,6 @@
 			<% end %>
 		</table>
 	</section>
+	</center>
 <% end %>
 </div>

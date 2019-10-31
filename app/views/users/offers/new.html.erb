@@ -1,7 +1,14 @@
-<%= simple_form_for :offer do |f| %>
-  <%= f.input :quantity_requested, collection: 1..@max_quantity.to_i,
-              prompt: 'How many tickets are you requesting?' %>
-  <%= f.input :offer_price, placeholder: '100.00' %>
-  <%= f.input :notes, placeholder: 'Leave a message' %>
-  <%= f.button :submit, class: 'button-sml' %>
-<% end %>
+<center>
+<section class= 'new-offer'>
+  <h1 class='offer-title'>New Offer</h1>
+  <%= simple_form_for :offer do |f| %>
+    <%= f.input :quantity_requested, collection: 1..@max_quantity.to_i,
+                prompt: 'How many tickets are you requesting?',
+                required: :true %>
+    <%= f.input :offer_price, placeholder: 'Total offer: $USD', required: :true %>
+    <%= f.input :notes, placeholder: 'Leave a message', required: :true %>
+    <br>
+    <%= f.button :submit, class: 'interest-button' %>
+  <% end %>
+</section>
+</center>
