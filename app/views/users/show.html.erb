@@ -58,7 +58,8 @@
             <td class= 'new-offer'>
               <%= link_to "Make an offer",
                     new_offer_path(facade.user.id, current_user.id,
-                                   :max_quantity => event.limit), class: 'orange-link' %>
+                                   :max_quantity => event.limit,
+                                   :tm_id => event.tm_id), class: 'orange-link' %>
             </td>
           <% end %>
         <% end %>
