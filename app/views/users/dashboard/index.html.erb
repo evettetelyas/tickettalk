@@ -1,10 +1,10 @@
 <center class="page-fonts">
 	<h2><%= current_user.first_name %>'s dashboard | <%= link_to "Edit Profile", edit_user_registration_path %></h2><br>
-	<p>Name: <%= current_user.first_name %> <%= current_user.last_name %></p>
-	<p>Email: <%= current_user.email %></p>
-	<p>Username: <%= current_user.username %></p>
+	<p><b>Username:</b> <%= link_to current_user.username, "/users/#{current_user.username}" %></p>
+	<p><b>Name:</b> <%= current_user.first_name %> <%= current_user.last_name %></p>
+	<p><b>Email:</b> <%= current_user.email %></p>
 	<% if current_user.paypal_me %>
-		<p>PaypalMe Account URL: paypal.me/<%= current_user.paypal_me %></p>
+		<p>PayPalMe Account URL: <%= link_to "paypal.me/#{current_user.paypal_me}", "https://paypal.me/#{current_user.paypal_me}" %> </p>
 	<% end %><br><br>
 
 	<% if current_user.has_interests? %>
@@ -19,7 +19,7 @@
 		<%= f.button :submit, "Add to My Interests", class: 'home-button' %>
 	<% end %>
 </center>
-
+<div class='page-fonts'>
 <% if current_user.offers != [] %>
 	<section class='offers'>
 		<table class='offers-table'>
@@ -33,8 +33,8 @@
 			</tr>
 			<% current_user.offers.each do |offer| %>
 				<tr>
+					<td><%= link_to facade.find_username(offer.offer_user_id), user_show_path(facade.find_username(offer.offer_user_id)) %></td>
 					<td><%= facade.find_username(offer.user_id) %></td>
-					<td><%= facade.find_username(offer.offer_user_id) %></td>
 					<td><%= offer.offer_price %></td>
 					<td><%= offer.quantity_requested %></td>
 					<td><%= offer.notes %></td>
@@ -64,3 +64,4 @@
 		</table>
 	</section>
 <% end %>
+</div>

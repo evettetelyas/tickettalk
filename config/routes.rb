@@ -34,4 +34,6 @@ Rails.application.routes.draw do
 
   post '/users/:user_id/offers/new/:offer_user_id',
        to: 'users/offers#create'
+
+  get '*path', to: 'application#routing_error'
 end
