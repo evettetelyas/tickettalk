@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'As a user' do
   describe 'when I visit another users profile' do
     before :each do
-      @me = create(:user, paypal_me: 'tylorschafer')
+      @me = create(:user)
       @them = create(:user, paypal_me: 'fakeuser')
       @event = create(:event, limit: 10)
       @room = create(:room, event_id: @event.id)
@@ -80,6 +80,15 @@ describe 'As a user' do
 
         click_on 'Accept'
       end
+      expect(page).to have_content("You must link your paypal account in your profile before accepting offers")
+
+      @me.paypal_me = 'paypalmeplease'
+      @me.save
+
+      visit '/profile'
+
+      click_on 'Accept'
+
       expect(page).to have_content("#{@them.username}'s offer has been accepted")
 
       within(first('.offers')) do
