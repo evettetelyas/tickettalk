@@ -8,3 +8,8 @@
 @import "user-dash";
 @import "my-events";
 @import "footer";
+
+body {
+  height: 100%;
+  position: relative;
+}
