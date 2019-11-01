@@ -20,8 +20,7 @@
 </p>
 # Database Schema
     <p>
-      ![Image of first half of schema](https://github.com/evettetelyas/tickettalk/blob/master/schema_1.png)
-      ![Image of second half of schema](https://github.com/evettetelyas/tickettalk/blob/master/schema_2.png)
+      ![Image of Schema Diagram](app/assets/images/schema_1.png)
       </p>
     </center>
   </p>
