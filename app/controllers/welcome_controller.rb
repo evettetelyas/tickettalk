@@ -9,4 +9,10 @@ class WelcomeController < ApplicationController
                                       .pluck(:keyword)
                                       .uniq)
   end
+
+  def about
+  end
+
+  def contact
+  end 
 end

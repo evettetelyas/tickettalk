@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   post '/users/:username/reviews', to: 'users/reviews#create', as: :new_review
 
   root to: 'welcome#index'
+  get '/about', to: 'welcome#about'
+  get '/contact', to: 'welcome#contact'
 
   resources :rooms
   resources :room_messages

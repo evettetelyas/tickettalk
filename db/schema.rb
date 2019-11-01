@@ -40,13 +40,11 @@ ActiveRecord::Schema.define(version: 2019_10_31_201201) do
   end
 
   create_table "offers", force: :cascade do |t|
-    t.float "offer_price"
+    t.integer "offer_price"
     t.integer "quantity_requested"
     t.string "notes"
     t.bigint "offer_user_id"
     t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "status", default: 0
     t.string "tm_id"
   end
