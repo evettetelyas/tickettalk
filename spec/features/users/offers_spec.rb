@@ -6,7 +6,7 @@ describe 'As a user' do
       @me = create(:user)
       @them = create(:user, paypal_me: 'fakeuser')
       @event = create(:event, limit: 10)
-      @room = create(:room, event_id: @event.id)
+      @room = create(:room, event_id: @event.id, tm_id: @event.tm_id)
       @rm = create(:room_message, user: @them, room: @room)
 
       visit login_path
@@ -48,7 +48,8 @@ describe 'As a user' do
     end
 
     it 'user can accept or decline pending offers' do
-      new_offer = create(:offer, user: @me, offer_user: @them)
+      event = create(:event)
+      new_offer = create(:offer, user: @me, offer_user: @them, tm_id: event.tm_id)
 
       visit '/profile'
 
@@ -66,7 +67,7 @@ describe 'As a user' do
 
       expect(page).to have_content("#{@them.username}'s offer has been declined")
 
-      offer_2 = create(:offer, user: @me, offer_user: @them)
+      offer_2 = create(:offer, user: @me, offer_user: @them, tm_id: event.tm_id)
 
       visit '/profile'
 
