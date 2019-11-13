@@ -1,7 +1,6 @@
 $(function() {
 
 	$('[data-channel-subscribe="offer"]').each(function(index, element) {
-		debugger
 		var $element = $(element),
 		  user_id = $element.data('user-id')
 		  messageTemplate = $('[data-role="offer-notification-template"]');
