@@ -42,7 +42,7 @@
     <center><h1 class='review-title'> <%=current_user.username %>'s Offers</h1></center>
     <table class = 'events-table'>
       <tr>
-        <th>Name</th>
+        <th>Event</th>
         <th>Minimum Price</th>
         <th>Maximum Price</th>
         <th>Ticket Limit</th>
@@ -50,7 +50,7 @@
       </tr>
       <% facade.events.each do |event| %>
         <tr>
-          <td><%= event.name %></td>
+          <td><%= link_to event.name, room_path(facade.find_room(event.tm_id)) %></td>
           <td><%= number_to_currency event.price_min %></td>
           <td><%= number_to_currency event.price_max %></td>
           <td><%= event.limit %></td>
