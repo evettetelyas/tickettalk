@@ -9,4 +9,8 @@ class DashboardFacade
     user = User.find(user_id)
     "https://www.paypal.me/#{user.paypal_me}"
   end
+
+  def event(tm_id)
+    Event.find_by(tm_id: tm_id)
+  end
 end

@@ -6,6 +6,7 @@ class CreateOffers < ActiveRecord::Migration[5.2]
       t.string :notes
       t.bigint :offer_user_id
       t.bigint :user_id
+      t.timestamps
     end
   end
 end
