@@ -15,15 +15,19 @@ class DashboardFacade
     Event.find_by(tm_id: tm_id)
   end
 
-  def offers(current_user, kind)
-    current_user.offers.where(status: kind)
-  end
-
-  def recieved_offers(current_user, kind)
+  def received_offers(current_user, kind)
     current_user.offers.where(status: kind).where(user_id: current_user.id)
   end
 
   def sent_offers(current_user, kind)
     current_user.offers.where(status: kind).where(offer_user_id: current_user.id)
+  end
+
+  def old_received_offers(current_user)
+    current_user.offers.where(user_id: current_user.id).where("status != 0")
+  end
+
+  def old_sent_offers(current_user)
+    current_user.offers.where(offer_user_id: current_user.id).where("status != 0")
   end
 end

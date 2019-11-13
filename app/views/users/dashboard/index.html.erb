@@ -30,17 +30,19 @@
 	<div class='page-fonts'>
 		<% if current_user.offers != [] %> -
 			<section class='offers'>
-				<% if facade.recieved_offers(current_user, 'pending') != [] %>
+
+				<% if facade.received_offers(current_user, 'pending') != [] %>
 					<section class= 'pending-incoming-offers-table'>
 						<h3>Incoming Pending Offers:</h3>
 					<%= render partial: 'shared/offers', locals: {
 						facade: facade,
-						offers: facade.recieved_offers(current_user, 'pending'),
+						offers: facade.received_offers(current_user, 'pending'),
 						user_type: 'Offered By',
 						find_type: 'receive'
 					} %>
 					</section>
 				<% end %>
+
 				<% if facade.sent_offers(current_user, 'pending') != [] %>
 					<section class= 'pending-outgoing-offers-table'>
 						<h3>Outgoing Pending Offers:</h3>
@@ -52,23 +54,25 @@
 					} %>
 					</section>
 				<% end %>
-				<% if facade.offers(current_user, 'accepted') != [] %>
+
+				<% if facade.old_received_offers(current_user) != [] %>
 					<section class= 'completed-successful-offers-table'>
 						<h3>Orders Recieved History:</h3>
 					<%= render partial: 'shared/offers', locals: {
 						facade: facade,
-						offers: facade.offers(current_user, 'accepted'),
+						offers: facade.old_received_offers(current_user),
 						user_type: 'Offered By',
-						find_type: 'recieve'
+						find_type: 'receive'
 					} %>
 					</section>
 				<% end %>
-				<% if facade.offers(current_user, 'declined') != [] %>
+
+				<% if facade.old_sent_offers(current_user) != [] %>
 					<section class= 'completed-uncsucessful-offers-table'>
 						<h3>Outgoing Orders History:</h3>
 					<%= render partial: 'shared/offers', locals: {
 						facade: facade ,
-						offers: facade.offers(current_user, 'declined'),
+						offers: facade.old_sent_offers(current_user),
 						user_type: 'Sent To',
 						find_type: 'sent'
 					} %>
