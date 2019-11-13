@@ -9,7 +9,7 @@
     <th>Notes</th>
     <th>Status</th>
   </tr>
-  <% current_user.offers.each do |offer| %>
+  <% offers.each do |offer| %>
     <tr>
       <td><%= link_to facade.find_username(offer.offer_user_id), user_show_path(facade.find_username(offer.offer_user_id)), class: 'dark-orange-link' %></td>
       <td><%= facade.event(offer.tm_id).name %></td>

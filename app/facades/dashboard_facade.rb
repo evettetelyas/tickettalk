@@ -13,4 +13,16 @@ class DashboardFacade
   def event(tm_id)
     Event.find_by(tm_id: tm_id)
   end
+
+  def offers(current_user, kind)
+    current_user.offers.where(status: kind)
+  end
+
+  def recieved_offers(current_user, kind)
+    current_user.offers.where(status: kind).where(user_id: current_user.id)
+  end
+
+  def sent_offers(current_user, kind)
+    current_user.offers.where(status: kind).where(offer_user_id: current_user.id)
+  end
 end

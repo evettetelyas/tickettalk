@@ -30,8 +30,21 @@
 	<div class='page-fonts'>
 		<% if current_user.offers != [] %> -
 			<section class='offers'>
-				<section class= 'pending-offers-table'>
-				<%= render partial: 'shared/offers', locals: { facade: facade } %>
+				<section class= 'pending-incoming-offers-table'>
+					<h3>Incoming Pending Offers:</h3>
+				<%= render partial: 'shared/offers', locals: { facade: facade, offers: facade.recieved_offers(current_user, 'pending') } %>
+				</section>
+				<section class= 'pending-outgoing-offers-table'>
+					<h3>Outgoing Pending Offers:</h3>
+				<%= render partial: 'shared/offers', locals: { facade: facade, offers: facade.sent_offers(current_user, 'pending') } %>
+				</section>
+				<section class= 'completed-successful-offers-table'>
+					<h3>Successful Transactions:</h3>
+				<%= render partial: 'shared/offers', locals: { facade: facade, offers: facade.offers(current_user, 'accepted') } %>
+				</section>
+				<section class= 'completed-uncsucessful-offers-table'>
+					<h3>Declined Transactions:</h3>
+				<%= render partial: 'shared/offers', locals: { facade: facade , offers: facade.offers(current_user, 'declined') } %>
 				</section>
 			</section>
 		<% end %>
