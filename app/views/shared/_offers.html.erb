@@ -1,6 +1,6 @@
 <table class='offers-table'>
   <tr>
-    <th>Offering User</th>
+    <th><%= user_type %></th>
     <th>Event</th>
     <th>Venue</th>
     <th>Offer Price</th>
@@ -11,7 +11,9 @@
   </tr>
   <% offers.each do |offer| %>
     <tr>
-      <td><%= link_to facade.find_username(offer.offer_user_id), user_show_path(facade.find_username(offer.offer_user_id)), class: 'dark-orange-link' %></td>
+      <td><%= link_to facade.find_user(offer.user_id, offer.offer_user_id, find_type),
+                user_show_path(facade.find_user(offer.user_id, offer.offer_user_id, find_type)),
+                    class: 'dark-orange-link' %></td>
       <td><%= facade.event(offer.tm_id).name %></td>
       <td><%= facade.event(offer.tm_id).venue %></td>
       <td><%= number_to_currency offer.offer_price %></td>

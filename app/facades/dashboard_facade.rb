@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class DashboardFacade
-  def find_username(id)
-    User.find(id).username
+  def find_user(user_id, offer_user_id, type)
+    return User.find(offer_user_id).username if type == 'receive'
+    return User.find(user_id).username if type == 'sent'
   end
 
   def seller_paypal(user_id)
