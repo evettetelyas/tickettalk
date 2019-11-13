@@ -36,15 +36,17 @@ class Users::OffersController < ApplicationController
   end
 
   def update
-    offer = Offer.find(params[:offer_id])
+    @offer = Offer.find(params[:offer_id])
+    @user = User.find(@offer.offer_user_id)
     if params[:accept] == 'true'
-      paypal_check(offer)
-      offer.decline_other_offers(offer.id, offer.tm_id, offer.user_id, offer.offer_user_id)
+      paypal_check(@offer)
+      @offer.decline_other_offers(@offer.id, @offer.tm_id, @offer.user_id, @offer.offer_user_id)
     else
-      offer.update_attributes(status: :declined)
-      flash[:success] = "#{offer.offer_user.username}'s offer has been declined"
+      @offer.update_attributes(status: :declined)
+      flash[:success] = "#{@offer.offer_user.username}'s offer has been declined"
     end
-    offer.save
+    @offer.save
+    ConfirmChannel.broadcast_to @user, @offer
     redirect_to '/profile'
   end
 

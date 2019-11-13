@@ -28,6 +28,16 @@
               </div>
               <% end %>
             <% end %>
+
+            <% if current_user %>
+              <% if Offer.exists? && current_user.id == Offer.order(:updated_at).last.offer_user_id %>  
+              <div data-channel-subscribe="confirm" data-user-id="<%= Offer.order(:updated_at).last.offer_user_id %>">
+                <div data-role="confirm-notification-template">
+                  <p class="confirm-message-template" data-role="confirm-message"></p>
+                </div>
+              </div>
+              <% end %>
+            <% end %>
       <%= yield %>
     </div>
     <%= render partial: 'shared/footer' %>
