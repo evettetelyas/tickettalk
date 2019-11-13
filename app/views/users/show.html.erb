@@ -43,6 +43,7 @@
     <table class = 'events-table'>
       <tr>
         <th>Event</th>
+        <th>Venue</th>
         <th>Minimum Price</th>
         <th>Maximum Price</th>
         <th>Ticket Limit</th>
@@ -51,6 +52,7 @@
       <% facade.events.each do |event| %>
         <tr>
           <td><%= link_to event.name, room_path(facade.find_room(event.tm_id)) %></td>
+          <td><%= event.venue %></td>
           <td><%= number_to_currency event.price_min %></td>
           <td><%= number_to_currency event.price_max %></td>
           <td><%= event.limit %></td>
