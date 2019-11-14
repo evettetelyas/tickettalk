@@ -30,4 +30,8 @@ class UserShowFacade
   def reviews
     user.reviews
   end
+
+  def find_room(tm_id)
+    Room.find_by(tm_id: tm_id)
+  end
 end
