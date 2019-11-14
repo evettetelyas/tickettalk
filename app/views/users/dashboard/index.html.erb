@@ -27,50 +27,58 @@
 </center>
 
 <center>
-<div class='page-fonts'>
-<% if current_user.offers != [] %>
-	<section class='offers'>
-		<table class='offers-table'>
-			<tr>
-				<th>Offering User</th>
-				<th>Offer For</th>
-				<th>Offer Price</th>
-				<th>Ticket Quantity</th>
-				<th>Notes</th>
-				<th>Status</th>
-			</tr>
-			<% current_user.offers.each do |offer| %>
-				<tr>
-					<td><%= link_to facade.find_username(offer.offer_user_id), user_show_path(facade.find_username(offer.offer_user_id)), class: 'dark-orange-link' %></td>
-					<td><%= facade.find_username(offer.user_id) %></td>
-					<td><%= number_to_currency offer.offer_price %></td>
-					<td><%= offer.quantity_requested %></td>
-					<td><%= offer.notes %></td>
-					<% if offer.user_id == current_user.id %>
-						<% if offer.status == 'pending' %>
-							<td>
-								<%= link_to 'Accept',
-											offer_path(offer, accept: 'true'),
-											method: :patch, class: 'dark-orange-link' %>
-											|
-								<%= link_to 'Decline',
-											offer_path(offer, accept: 'false'),
-											method: :patch, class: 'dark-orange-link' %>
-							</td>
-						<% else %>
-							<td><%= offer.status %></td>
-						<% end %>
-					<% else %>
-						<% if offer.status == 'accepted'%>
-							<td><%= link_to "Pay this User", facade.seller_paypal(offer.user_id), class: 'dark-orange-link'%></td>
-						<% else %>
-							<td><%= offer.status %></td>
-						<% end %>
-					<% end %>
-				</tr>
-			<% end %>
-		</table>
-	</section>
-	</center>
-<% end %>
-</div>
+	<div class='page-fonts'>
+		<% if current_user.offers != [] %> -
+			<section class='offers'>
+
+				<% if facade.received_offers(current_user, 'pending') != [] %>
+					<section class= 'pending-incoming-offers-table'>
+						<h3>Incoming Pending Offers:</h3>
+					<%= render partial: 'shared/offers', locals: {
+						facade: facade,
+						offers: facade.received_offers(current_user, 'pending'),
+						user_type: 'Offered By',
+						find_type: 'receive'
+					} %>
+					</section>
+				<% end %>
+
+				<% if facade.sent_offers(current_user, 'pending') != [] %>
+					<section class= 'pending-outgoing-offers-table'>
+						<h3>Outgoing Pending Offers:</h3>
+					<%= render partial: 'shared/offers', locals: {
+						facade: facade,
+						offers: facade.sent_offers(current_user, 'pending'),
+						user_type: 'Sent To',
+						find_type: 'sent'
+					} %>
+					</section>
+				<% end %>
+
+				<% if facade.old_received_offers(current_user) != [] %>
+					<section class= 'completed-successful-offers-table'>
+						<h3>Orders Recieved History:</h3>
+					<%= render partial: 'shared/offers', locals: {
+						facade: facade,
+						offers: facade.old_received_offers(current_user),
+						user_type: 'Offered By',
+						find_type: 'receive'
+					} %>
+					</section>
+				<% end %>
+
+				<% if facade.old_sent_offers(current_user) != [] %>
+					<section class= 'completed-uncsucessful-offers-table'>
+						<h3>Outgoing Orders History:</h3>
+					<%= render partial: 'shared/offers', locals: {
+						facade: facade ,
+						offers: facade.old_sent_offers(current_user),
+						user_type: 'Sent To',
+						find_type: 'sent'
+					} %>
+					</section>
+				<% end %>
+			</section>
+		<% end %>
+	</div>
+</center>

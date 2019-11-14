@@ -1,0 +1,46 @@
+<table class='offers-table'>
+  <tr>
+    <th><%= user_type %></th>
+    <th>Event</th>
+    <th>Venue</th>
+    <th>Offer Price</th>
+    <th>Ticket Quantity</th>
+    <th>Offered on</th>
+    <th>Notes</th>
+    <th>Status</th>
+  </tr>
+  <% offers.each do |offer| %>
+    <tr>
+      <td><%= link_to facade.find_user(offer.user_id, offer.offer_user_id, find_type),
+                user_show_path(facade.find_user(offer.user_id, offer.offer_user_id, find_type)),
+                    class: 'dark-orange-link' %></td>
+      <td><%= facade.event(offer.tm_id).name %></td>
+      <td><%= facade.event(offer.tm_id).venue %></td>
+      <td><%= number_to_currency offer.offer_price %></td>
+      <td><%= offer.quantity_requested %></td>
+      <td><%= offer.created_at %></td>
+      <td><%= offer.notes %></td>
+      <% if offer.user_id == current_user.id %>
+        <% if offer.status == 'pending' %>
+          <td>
+            <%= link_to 'Accept',
+                  offer_path(offer, accept: 'true'),
+                  method: :patch, class: 'dark-orange-link' %>
+                  |
+            <%= link_to 'Decline',
+                  offer_path(offer, accept: 'false'),
+                  method: :patch, class: 'dark-orange-link' %>
+          </td>
+        <% else %>
+          <td><%= offer.status %></td>
+        <% end %>
+      <% else %>
+        <% if offer.status == 'accepted'%>
+          <td><%= link_to "Pay this User", facade.seller_paypal(offer.user_id), class: 'dark-orange-link'%></td>
+        <% else %>
+          <td><%= offer.status %></td>
+        <% end %>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
