@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2019_10_31_201201) do
     t.string "username", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
+    t.string "message_color", default: "blue"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "provider"

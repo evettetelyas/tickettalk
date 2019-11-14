@@ -10,7 +10,7 @@ class User < ApplicationRecord
                        uniqueness: true,
                        presence: true
 
-  validates_presence_of :first_name, :last_name
+  validates_presence_of :first_name, :last_name, :message_color
 
   has_many :interests, dependent: :destroy
   has_many :room_messages, dependent: :destroy
