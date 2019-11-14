@@ -35,6 +35,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :username, null: false
       t.string :first_name, null: false
       t.string :last_name, null: false
+      t.string :message_color, default: 'blue'
 
       t.timestamps null: false
     end

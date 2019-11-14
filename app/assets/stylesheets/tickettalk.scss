@@ -68,6 +68,42 @@ padding: 5px;
 	// height: 3rem;
 }
 
+.blue-message-content {
+	padding: 5px;
+	// border: 1px solid #262626;
+	border-radius: 1px;
+	background: #009bde;
+	color: $white;
+	width: 92%;
+	float: right;
+	text-align: left;
+	// height: 3rem;
+}
+
+.gray-message-content {
+	padding: 5px;
+	// border: 1px solid #262626;
+	border-radius: 1px;
+	background: #808080;
+	color: $white;
+	width: 92%;
+	float: right;
+	text-align: left;
+	// height: 3rem;
+}
+
+.orange-message-content {
+	padding: 5px;
+	// border: 1px solid #262626;
+	border-radius: 1px;
+	background: #c4862f;
+	color: $white;
+	width: 92%;
+	float: right;
+	text-align: left;
+	// height: 3rem;
+}
+
 .mb-1 {
 	margin-top: 0.5rem;
 }

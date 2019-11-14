@@ -15,6 +15,7 @@ $(function() {
 		  received: function(data) {
 			var content = messageTemplate.children().clone(true, true);
 			content.find('[data-role="user-username"]').attr('href', data.username_url).text(data.username);
+			content.find('[data-role="css-type"]').attr('class', data.css_type);
 			content.find('[data-role="message-text"]').text(data.message);
 			content.find('[data-role="message-date"]').text(data.timestamp);
 			$element.append(content);

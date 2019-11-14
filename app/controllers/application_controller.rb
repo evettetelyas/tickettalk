@@ -10,12 +10,12 @@ class ApplicationController < ActionController::Base
       .permit(:sign_up, keys: %i[email username first_name last_name])
     devise_parameter_sanitizer
       .permit(:account_update,
-              keys: %i[email username first_name last_name paypal_me])
+              keys: %i[email username first_name last_name paypal_me message_color])
   end
 
   def action_missing(m, *_args)
     Rails.logger.error(m)
     redirect_to '/'
     flash[:error] = "Sorry the page your looking for doesn't exsist"
-  end
+  end           
 end
