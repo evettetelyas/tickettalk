@@ -8,13 +8,7 @@
   }
 
 .chat-container {
-  width: 70%;
-}
-
-
-.col-12.col-md-3 {
-  width: 25%;
-  float: left;
+  width: 73%;
 }
 
 .col-auto a {
@@ -32,10 +26,11 @@
 	border-top: 0 none;
 	border-radius: 0 0 5px 5px;
 	margin-left: 10%;
+  width: 90%;
   }
 
 .chat-message-container {
-padding: 5px;
+  padding: 5px;
 
 & + .chat-message-container {
 	margin-top: 10px;
