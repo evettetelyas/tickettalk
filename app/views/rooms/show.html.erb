@@ -3,56 +3,57 @@
 	  </h1><br>
 	</center>
 
-	  <div class="row" id='rooms'>
-			<div class="col-12 col-md-3">
-				<div class="mb-3">
-					<section class="page-fonts">
-					<%= image_tag(@event.image, :class => "event-image") %>
-					<p>Show Date: <%= @event.formatted_date %></p>
-					<% if @event.on_sale %>
-						<p>Onsale: <%= @event.formatted_onsale %></p>
-					<% end %>
-					<% if @event.price_max %>
-						<p>Max Price: <%= number_to_currency @event.price_max %></p>
-					<% end %>
-					<% if @event.price_min %>
-						<p>Min Price: <%= number_to_currency @event.price_min %></p>
-					<% end %>
-					<% if @event.limit %>
-						<p>Ticket Limit: <%= @event.limit %></p>
-					<% end %>
-					<p>Buy Tickets on <%= link_to "Ticketmaster", @event.purchase_url %></p>
-				</section>
-				</div>
-			</div>
+<div class="row" id='rooms'>
+	<div class="col-12 col-md-3">
+		<div class="mb-3">
+			<section class="page-fonts">
+			<%= image_tag(@event.image, :class => "event-image") %>
+			<p>Show Date: <%= @event.formatted_date %></p>
+			<% if @event.on_sale %>
+				<p>Onsale: <%= @event.formatted_onsale %></p>
+			<% end %>
+			<% if @event.price_max %>
+				<p>Max Price: <%= number_to_currency @event.price_max %></p>
+			<% end %>
+			<% if @event.price_min %>
+				<p>Min Price: <%= number_to_currency @event.price_min %></p>
+			<% end %>
+			<% if @event.limit %>
+				<p>Ticket Limit: <%= @event.limit %></p>
+			<% end %>
+			<p>Buy Tickets on <%= link_to "Ticketmaster", @event.purchase_url %></p>
+		</section>
+		</div>
+</div>
 
-		<div class="col">
+	<div class="chat-container">
 		<div class="chat" data-channel-subscribe="room" data-room-id="<%= @room.id %>">
 			<% @room_messages.each do |room_message| %>
 			  <div class="chat-message-container">
-				<div class="row no-gutters">
-				  <div class="col-auto text-center">
-					<%= link_to facade.find_username(room_message.user_id),
-														 "/users/#{facade.find_username(room_message.user_id)}" %>
-				  </div>
+					<div class="row no-gutters">
+					  <div class="col-auto text-center">
+						<%= link_to facade.find_username(room_message.user_id),
+															 "/users/#{facade.find_username(room_message.user_id)}" %>
+					  </div>
 
-				  <div class="col">
-					<div class="<%= room_message.user.message_color %>-message-content">
-					  <p class="mb-1">
-						<%= room_message.message %>
-					  </p>
+					  <div class="col">
+								<div class="<%= room_message.user.message_color %>-message-content">
+								  <p class="mb-1">
+									<%= room_message.message %>
+								  </p>
 
-					  <div class="text-right">
-						<small>
-						  <%= room_message.updated_at.getlocal.strftime("%l:%M:%S %p") %>
-						</small>
+
+								  <div class="text-right">
+										<small>
+										  <%= room_message.updated_at.getlocal.strftime("%l:%M:%S %p") %>
+										</small>
+								  </div>
+							</div>
 					  </div>
 					</div>
-				  </div>
-				</div>
 			  </div>
 			<% end %>
-		  </div>
+		 </div>
 
 		  <%= simple_form_for @room_message, remote: true do |form| %>
 			<div class="input-group mb-3">
@@ -70,29 +71,30 @@
 			<%= form.input :room_id, as: :hidden %>
 		  <% end %>
 		</div>
-	  </div>
-	  <div class="d-none" data-role="message-template">
-			<div class="chat-message-container">
-			  <div class="row no-gutters">
-				<div class="col-auto text-center">
-				  <a href="" data-role="user-username"></a>
-				</div>
+</div>
 
-				<div class="col">
-				  <div class="" data-role="css-type">
+<div class="d-none" data-role="message-template">
+	<div class="chat-message-container">
+	  <div class="row no-gutters">
+			<div class="col-auto text-center">
+			  <a href="" data-role="user-username"></a>
+			</div>
+
+			<div class="col">
+			  <div class="chat-text" data-role="css-type">
 					<p class="mb-1" data-role="message-text"></p>
 
 					<div class="text-right">
 					  <small data-role="message-date"></small>
 					</div>
-				  </div>
-				</div>
 			  </div>
 			</div>
-		  </div>
-		  <center><br>
-			  <% if @event.seatmap %>
-			  <h3 class="seatmap">Seatmap</h3>
-			  <%= image_tag(@event.seatmap) %>
-			</center>
-			<% end %>
+	  </div>
+	</div>
+</div>
+<center><br>
+  <% if @event.seatmap %>
+	  <h3 class="seatmap">Seatmap</h3>
+	  <%= image_tag(@event.seatmap) %>
+	<% end %>
+</center>
