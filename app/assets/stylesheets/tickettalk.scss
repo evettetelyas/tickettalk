@@ -14,104 +14,15 @@
 	}
 }
 
-.chat {
-	border: 1px solid lighten($secondary, 40%);
-	background: lighten($secondary, 50%);
-	height: 50vh;
-	margin-left: 10%;
-	border-radius: 2px 2px 0 0;
-	overflow-y: auto;
-  }
-
-.col-auto a {
-	color: #262626;
-	// text-shadow:0px 1px 1px #009bde;
-	align-self: left;
-}
-
-.col-auto {
-	margin-top: 0.8rem;
-	margin-left: 2.6rem;
-	text-align: left;
-}
-
-.row {
-	border-width:1px;
-	border-style:solid;
-	border-color:#262626;
-	border-radius: 8px;
-	box-shadow:0px 0px 5px 0px #009bde;
-}
-
-.chat-input {
-	border-top: 0 none;
-	border-radius: 0 0 5px 5px;
-	margin-left: 10%;
-  }
-
-.chat-message-container {
-padding: 5px;
-
 .avatar {
 	margin: 5px;
-}
-
-.message-content {
-	padding: 5px;
-	// border: 1px solid #262626;
-	border-radius: 1px;
-	background: #009bde;
-	color: $white;
-	width: 92%;
-	float: right;
-	text-align: left;
-	// height: 3rem;
-}
-
-.blue-message-content {
-	padding: 5px;
-	// border: 1px solid #262626;
-	border-radius: 1px;
-	background: #009bde;
-	color: $white;
-	width: 92%;
-	float: right;
-	text-align: left;
-	// height: 3rem;
-}
-
-.gray-message-content {
-	padding: 5px;
-	// border: 1px solid #262626;
-	border-radius: 1px;
-	background: #808080;
-	color: $white;
-	width: 92%;
-	float: right;
-	text-align: left;
-	// height: 3rem;
-}
-
-.orange-message-content {
-	padding: 5px;
-	// border: 1px solid #262626;
-	border-radius: 1px;
-	background: #c4862f;
-	color: $white;
-	width: 92%;
-	float: right;
-	text-align: left;
-	// height: 3rem;
 }
 
 .mb-1 {
 	margin-top: 0.5rem;
 }
 
-& + .chat-message-container {
-	margin-top: 10px;
-}
-}
+
 
 .welcome-logo {
 	margin-top: 50px;
@@ -233,19 +144,6 @@ padding: 5px;
 	float: right;
 }
 
-.my-3 {
-	min-height: 100vh;
-	width: 80%;
-	margin-left: 10%;
-	margin-right: 10%;
-}
-
-.text-right {
-	float: right;
-	margin-top: 0.1rem;
-	color: black;
-}
-
 #rooms {
 	padding-top: 20px;
 }
@@ -262,9 +160,6 @@ padding: 5px;
 	font-family: 'Averta Demo PE cutted demo';
 }
 
-.page-fonts{
-	font-family: 'Averta Demo PE cutted demo';
-}
 
 .header-fonts{
 	font-family: 'Averta Demo PE cutted demo';
@@ -290,11 +185,6 @@ padding: 5px;
 	width: 50%
 }
 
-.new-message-template {
-	color: #9F6000;
-	background-color: #FEEFB3;
-	text-align: center;
-}
 
 .confirm-message-template {
 	color: #9F6000;
