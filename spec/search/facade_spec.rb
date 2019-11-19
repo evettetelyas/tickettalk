@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Search Facade' do
+describe 'Search Facade', :vcr do
   before :each do
     @facade_1 = SearchFacade.new('phish', 'date_asc')
     @facade_2 = SearchFacade.new('phish', 'price_asc')
