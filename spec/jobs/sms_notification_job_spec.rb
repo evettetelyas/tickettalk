@@ -7,7 +7,7 @@ describe SmsNotificationJob, type: :job do
   end
 
   describe '#perform' do
-    # This tests works but is skipped because of an error it causes in travis ci
+    # This test works but is skipped because of an error it causes in travis ci
     xit 'Sends out an SMS notification if events are going on sale' do
       event = create(:event)
       result = @job.perform(event)
