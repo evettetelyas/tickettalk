@@ -1,8 +1,13 @@
 language: ruby
 cache: bundler
 
+env:
+  - TWILIO_ACCOUNT_SID: ENV['TWILIO_ACCOUNT_SID']
+  - TWILIO_AUTH_TOKEN: ENV['TWILIO_AUTH_TOKEN']
+  - TWILIO_PHONE_NUMBER: ENV['TWILIO_PHONE_NUMBER']
+
 rvm:
-- 2.6.2
+  - 2.6.2
 
 services:
   - postgresql
