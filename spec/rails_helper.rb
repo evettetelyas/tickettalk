@@ -4,9 +4,6 @@
 require 'simplecov'
 SimpleCov.start do
   add_filter '/spec'
-  add_filter '/config/initializers/warden_hooks.rb'
-  add_filter '/app/jobs'
-  add_filter '/app/channels'
 end
 
 require 'faker'
@@ -71,3 +68,4 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+require 'action_cable/testing/rspec'
