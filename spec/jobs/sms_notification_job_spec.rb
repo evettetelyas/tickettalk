@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe SmsNotificationJob, :vcr, type: :job do
+describe SmsNotificationJob, type: :job do
   before :each do
     ActiveJob::Base.queue_adapter = :test
     @job = SmsNotificationJob.new

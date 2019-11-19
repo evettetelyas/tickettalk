@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe UpcomingOnSalesJob, :vcr, type: :job do
+describe UpcomingOnSalesJob, type: :job do
   before :each do
     ActiveJob::Base.queue_adapter = :test
     @job = UpcomingOnSalesJob.new
