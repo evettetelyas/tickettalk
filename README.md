@@ -4,7 +4,7 @@ http://ticket-talk.herokuapp.com/
 # About Our Team
 
   We are four software engineering students at Turing School of Software & Design.
-  This app is the product of a group project over 12 days 3/4 the way through our
+  This app is the product of a group project over 12 days three quarters of the way through our
   seven-month intensive technical education program. The idea came from a real-life
   struggle with Ticketmaster's on-sale process to obtain tickets to some of our favorite,
   very in-demand events. The solution we created is TicketTalk - a way for fans to help
