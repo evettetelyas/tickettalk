@@ -15,7 +15,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'omniauth-google-oauth2'
 gem 'pg'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 gem 'redis'
 gem 'rubocop', require: false
 gem 'sass-rails', '~> 5.0'
